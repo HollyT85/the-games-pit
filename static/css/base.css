@@ -8,8 +8,12 @@ html {
     margin: 0;
 }
 
+/* Base Template Styling */
+
 .footer {
     background-color: black;
+    height:50px;
+    color:white;
 }
 
 .postage-banner{
@@ -33,4 +37,10 @@ html {
     font-size: 15vh;
     padding-top: 3vh;
     color: #59889f;
+}
+
+/* Home Page */
+
+.carousel-container {
+    height:fit-content;
 }
