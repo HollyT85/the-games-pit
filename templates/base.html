@@ -14,17 +14,17 @@
     {% endblock %}
 
     {% block corecss %}
-        <!--Own styling-->
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <!--Google Fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-        <!--Stripe-->
-        <script src="https://js.stripe.com/v3/"></script>
+    <!--Own styling-->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <!--Stripe-->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_css %}
@@ -32,7 +32,7 @@
 
     {% block corejs %}
     <!--Font Awesome-->
-    <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e79c061fa8.js" crossorigin="anonymous"></script>
     <!--JQuery / Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -53,18 +53,21 @@
 <body>
     <header class="container-fluid fixed-top test">
         <div class="postage-banner">
-            Free Postage When You Spend Over £50
+            <i class="fas fa-shopping-bag"></i>
         </div>
         <div class="shop-name-banner">
             The Games Pit
         </div>
-        
+        <div class="postage-banner">
+            Free Postage When You Spend Over £50
+        </div>
+
     </header>
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
 
-    {% block pgae_header %}
+    {% block page_header %}
     {% endblock %}
 
     {% block content %}
@@ -75,6 +78,13 @@
 
 
 </body>
-<footer></footer>
+<footer class="footer">
+    <div class="map">
+
+    </div>
+    <div class="details">
+        
+    </div>
+</footer>
 
 </html>
