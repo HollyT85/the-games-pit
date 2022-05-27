@@ -3,7 +3,6 @@ from django.db import models
 
 class Category(models.Model):
     main_cat = models.CharField(max_length=255)
-    sub_cat = models.CharField(max_length=255)
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -12,7 +11,17 @@ class Category(models.Model):
         return self.main_cat
 
 
+class SubCat(models.Model):
+    main_cat = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    sub_cat = models.CharField(max_length=255)
+
+
 class ExtraCat(models.Model):
+    main_cat = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    sub_cat = models.ForeignKey(
+        'SubCat', null=True, blank=True, on_delete=models.SET_NULL)
     extra_cat = models.CharField(max_length=255)
 
     def __str__(self):
@@ -23,6 +32,8 @@ class Products(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.ForeignKey(
+        'SubCat', null=True, blank=True, on_delete=models.SET_NULL)
+    extra_cat = models.ForeignKey(
         'ExtraCat', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     description = models.TextField()
