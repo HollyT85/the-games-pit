@@ -51,20 +51,12 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-        <div class="row">
-            
-        </div>
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-            <div class="col col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link"> 
-                    <h2 class="my-0">The Games Pit</h2>
-                </a>
-            </div>
-            <div class="col col-12 col-lg-4 my-auto py-1 py-lg-0">
+    <header class="container-fluid fixed-top header">
+        <div class="row postage-banner p-1">
+            <div class="col-6">
                 <form method="GET" action="">
                     <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="search" placeholder="Search our site">
+                        <input class="form-control border border-black rounded-0" type="text" name="search" placeholder="What are you looking for?">
                         <div class="input-group-append">
                             <button class="form-control btn btn-black border border-black rounded-0" type="submit">
                                 <span class="icon">
@@ -75,7 +67,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <div class="col-6">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -113,10 +105,20 @@
                     </li>
                 </ul>
             </div>
-
+        </div>
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+            <div class="row">
+                <div class="col-12 shop-name-banner">
+                    The Games Pit
+                </div>
+            </div>
         </div>
         <div class="row">
-
+            <div class="row">
+                <div class="col-12">
+                    hello
+                </div>
+            </div>
         </div>
 
     </header>

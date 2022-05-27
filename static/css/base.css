@@ -6,15 +6,20 @@ html {
 
 .body {
     background-size: cover;
-    height: calc(100vh-164px)
+    height: calc(100vh-164px);
+    background-color: black;
 }
 
 .main-logo-link {
     width: fit-content;
 }
 
+.header {
+    height: auto;
+}
+
 .postage-banner{
-    height: 7vh;
+    height: 100px;
     background-color: black;
     color: white;
     width: 100%;
@@ -27,8 +32,7 @@ html {
 }
 
 .shop-name-banner {
-    background-color: lightgrey;
-    height: 30vh;
+    height: 20vh;
     font-family: 'Uncial Antiqua';
     padding-left: 10vh;
     font-size: 15vh;
@@ -42,4 +46,8 @@ html {
     background-color: black;
     color: white;
     min-width: 264px;
+}
+
+.pic-carousel {
+    position: relative ;
 }
