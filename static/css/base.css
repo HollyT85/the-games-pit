@@ -2,9 +2,45 @@ html {
     height: 100%;
 }
 
+/* general styling - need to do ul/ li colours */
+
+.page-background {
+    background-size: cover;
+    height: calc(100vh - 164px);
+    background-color: black;
+}
+
+
 /* Base Template Styling */
 
 .header {
+    background-color: black;
+}
+
+.bottom-nav {
+    background-color: black;
+    color: white;
+    margin: 1px 0;
+}
+
+.top-nav {
+    background-color: black;
+    color: yellow;
+    margin: 0 0 1px 0;
+}
+
+.zombie {
+    height: 120px;
+    width: 120px;
+    float: left;
+}
+
+h1 {
     color: lightgreen;
     font-family: 'Uncial Antiqua', sans-serif;
+}
+
+.footer {
+    background-color: black;
+    margin-top: 1px;
 }

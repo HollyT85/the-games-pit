@@ -54,11 +54,13 @@
     <body>
         <!--Top nav - search, link to home and shopping bag-->
         {% include 'includes/top-nav.html' %}
-        <header class="bg-dark py-5">
-            <div class="container px-3 px-lg-5 my-3">
-                <div>
-                    <img src="media/zombie.jpg">
-                    <h1 class="header">The Games Pit</h1>
+        <header class="py-5 header">
+            <div class="container py-1 py-lg-2 my-2">
+                <div class="py-auto px-0">
+                    <img src="media/zombie.jpg" class="zombie">
+                </div>
+                <div class="">
+                    <h1>The Games Pit</h1>
                 </div>
             </div>
         </header>
@@ -67,7 +69,10 @@
         {% include 'includes/bottom-nav.html' %}
 
         
-        {% if messages %}
+        
+        
+        <div class="page-background">
+            {% if messages %}
             <div class="message-container"></div>
         {% endif %}
 
@@ -79,11 +84,10 @@
 
         {% block postloadjs %}
         {% endblock %}
-        
-        
+        </div>
         
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5 footer">
             <div class="container"><p class="m-0 text-center text-white">The Games Pit</p></div>
         </footer>
         <!-- Bootstrap core JS-->
