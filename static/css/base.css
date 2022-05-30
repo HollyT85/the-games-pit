@@ -4,7 +4,7 @@ html {
 
 /* Base Template Styling */
 
-.hello {
-    color: green;
-    font-size: 300px;
+.header {
+    color: lightgreen;
+    font-family: 'Uncial Antiqua', sans-serif;
 }
