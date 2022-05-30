@@ -16,14 +16,6 @@ class SubCat(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.CharField(max_length=255)
 
-
-class ExtraCat(models.Model):
-    main_cat = models.ForeignKey(
-        'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    sub_cat = models.ForeignKey(
-        'SubCat', null=True, blank=True, on_delete=models.SET_NULL)
-    extra_cat = models.CharField(max_length=255)
-
     def __str__(self):
         return self.sub_cat
 
@@ -33,8 +25,7 @@ class Products(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.ForeignKey(
         'SubCat', null=True, blank=True, on_delete=models.SET_NULL)
-    extra_cat = models.ForeignKey(
-        'ExtraCat', null=True, blank=True, on_delete=models.SET_NULL)
+    extra_cat = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
     description = models.TextField()
     in_stock = models.BooleanField(default=True)

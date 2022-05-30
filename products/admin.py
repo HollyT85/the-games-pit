@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Products, ExtraCat, SubCat
+from .models import Category, Products, SubCat
 
 
 class ProductsAdmin(admin.ModelAdmin):
@@ -29,15 +29,7 @@ class SubCatAdmin(admin.ModelAdmin):
         'sub_cat'
     )
 
-class ExtraCatAdmin(admin.ModelAdmin):
-    list_display = (
-        'main_cat',
-        'sub_cat',
-        'extra_cat',
-    )
 
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(ExtraCat, ExtraCatAdmin)
-
-
+admin.site.register(SubCat, SubCatAdmin)

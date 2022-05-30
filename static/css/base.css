@@ -4,50 +4,7 @@ html {
 
 /* Base Template Styling */
 
-.body {
-    background-size: cover;
-    height: calc(100vh-164px);
-    background-color: black;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-.header {
-    height: auto;
-}
-
-.postage-banner{
-    height: 100px;
-    background-color: black;
-    color: white;
-    width: 100%;
-    font-family: 'Uncial Antiqua';
-    text-align: center;
-    margin: auto;
-    padding: 1vh;
-    font-size: 3vh;
-    color: #b1c721;
-}
-
-.shop-name-banner {
-    height: 20vh;
-    font-family: 'Uncial Antiqua';
-    padding-left: 10vh;
-    font-size: 15vh;
-    padding-top: 3vh;
-    color: #59889f;
-}
-
-/* Home Page */
-
-.new-releases-btn {
-    background-color: black;
-    color: white;
-    min-width: 264px;
-}
-
-.pic-carousel {
-    position: relative ;
+.hello {
+    color: green;
+    font-size: 300px;
 }
