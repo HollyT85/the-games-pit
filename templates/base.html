@@ -2,46 +2,46 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
 
     {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
 
     {% block corecss %}
-        <!--Own styling-->
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <!--Google Fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-        <!--Stripe-->
-        <script src="https://js.stripe.com/v3/"></script>
+    <!--Own styling-->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <!--Stripe-->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
-        <!--Font Awesome-->
-        <script src="https://kit.fontawesome.com/e79c061fa8.js" crossorigin="anonymous"></script>
-        <!--JQuery / Bootstrap-->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/e79c061fa8.js" crossorigin="anonymous"></script>
+    <!--JQuery / Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
     {% endblock %}
 
     {% block extra_js %}
@@ -49,31 +49,32 @@
 
     <title>The Games Pit</title>
 
-    </head>
+</head>
 
-    <body>
-        <!--Top nav - search, link to home and shopping bag-->
-        {% include 'includes/top-nav.html' %}
-        <header class="py-5 header">
-            <div class="container py-1 py-lg-2 my-2">
-                <div class="py-auto px-0">
-                    <img src="media/zombie.jpg" class="zombie">
-                </div>
-                <div class="">
-                    <h1>The Games Pit</h1>
-                </div>
+<body>
+    <!--Top nav - search, link to home and shopping bag-->
+    {% include 'includes/top-nav.html' %}
+    <header>
+        <div class="row header py-3">
+            <div class="col-1">
+                <img src="media/zombie.jpg" class="zombie my-auto mx-3">
             </div>
-        </header>
-        <!-- Bottom nav - different shopping areas -->
+        <div class="col-8 my-auto mx-0">
+            <h1>The Games Pit</h1>
+        </div>
+        
+    </div>
+    </header>
+    <!-- Bottom nav - different shopping areas -->
 
-        {% include 'includes/bottom-nav.html' %}
+    {% include 'includes/bottom-nav.html' %}
 
-        
-        
-        
-        <div class="page-background">
-            {% if messages %}
-            <div class="message-container"></div>
+
+
+
+    <div class="page-background">
+        {% if messages %}
+        <div class="message-container"></div>
         {% endif %}
 
         {% block page_header %}
@@ -84,14 +85,16 @@
 
         {% block postloadjs %}
         {% endblock %}
+    </div>
+
+    <!-- Footer-->
+    <footer class="py-5 footer">
+        <div class="container">
+            <p class="m-0 text-center text-white">The Games Pit</p>
         </div>
-        
-        <!-- Footer-->
-        <footer class="py-5 footer">
-            <div class="container"><p class="m-0 text-center text-white">The Games Pit</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
 

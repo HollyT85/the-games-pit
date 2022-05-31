@@ -13,7 +13,7 @@ html {
 
 /* Base Template Styling */
 
-.header {
+header {
     background-color: black;
 }
 
@@ -25,17 +25,15 @@ html {
 
 .top-nav {
     background-color: black;
-    color: yellow;
     margin: 0 0 1px 0;
 }
 
-.zombie {
-    height: 120px;
-    width: 120px;
+.zombie{
+    height: 50px;
     float: left;
 }
 
-h1 {
+.uncial-text {
     color: lightgreen;
     font-family: 'Uncial Antiqua', sans-serif;
 }
