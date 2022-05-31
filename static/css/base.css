@@ -10,7 +10,6 @@ html {
     background-color: black;
 }
 
-
 /* Base Template Styling */
 
 header {
@@ -45,11 +44,3 @@ header {
 
 
 /* index.html */
-
-.carousel-images {
-    height: calc(100vh - 164px);
-    margin-top: 10px;
-    margin-left: 30%;
-    margin-bottom: 10px;
-    float:left;
-}
