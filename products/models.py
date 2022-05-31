@@ -25,7 +25,7 @@ class Products(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.ForeignKey(
         'SubCat', null=True, blank=True, on_delete=models.SET_NULL)
-    extra_cat = models.CharField(max_length=254)
+    extra_cat = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
     in_stock = models.BooleanField(default=True)
