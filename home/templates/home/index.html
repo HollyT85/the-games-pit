@@ -1,24 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="media/etb.jpg" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="media/warhammer.jpg" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="media/dnd.jpg" alt="Third slide">
+<!--Carousel of Images-->
+<div id="carouselExampleCaptions" class="carousel slide carousel-images" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="media/warhammer.jpg" class="d-block w-100" alt="wahammer">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="sub-head">Warhammer</h5>
+        <p class="info">...</p>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="carousel-item">
+      <img src=".media/etb.jpg" class="d-block w-100" alt="Pokemon">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="sub-head">Pokemon</h5>
+        <p class="info">...</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="media/dnd.jpg" class="d-block w-100" alt="A hamster">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="sub-head">DnD</h5>
+        <p class="info">...</p>
+      </div>
+    </div>
   </div>
+</div>
+
 {% endblock %}

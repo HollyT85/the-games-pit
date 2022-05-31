@@ -42,3 +42,14 @@ header {
     background-color: black;
     margin-top: 1px;
 }
+
+
+/* index.html */
+
+.carousel-images {
+    height: calc(100vh - 164px);
+    margin-top: 10px;
+    margin-left: 30%;
+    margin-bottom: 10px;
+    float:left;
+}
