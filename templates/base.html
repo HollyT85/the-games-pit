@@ -54,22 +54,20 @@
 <body>
     <!--Top nav - search, link to home and shopping bag-->
     {% include 'includes/top-nav.html' %}
-    <header>
-        <div class="row header py-3">
-            <div class="col-1">
-                <img src="media/zombie.jpg" class="zombie my-auto mx-3">
-            </div>
-        <div class="col-8 my-auto mx-0">
-            <h1>The Games Pit</h1>
+    <header class="row py-5">
+        <div class="col-2">
+            <img src="media/zombie.jpg" class="zombie my-auto mx-4">
         </div>
-        
-    </div>
+        <div class="col-8 my-auto mx-0">
+            <h1 class="uncial-text">The Games Pit</h1>
+        </div>
+
     </header>
     <!-- Bottom nav - different shopping areas -->
 
     {% include 'includes/bottom-nav.html' %}
 
-    <div class="page-background">
+    <div class="page-background row">
         {% if messages %}
         <div class="message-container"></div>
         {% endif %}
@@ -85,9 +83,27 @@
     </div>
 
     <!-- Footer-->
-    <footer class="py-5 footer">
-        <div class="container">
-            <p class="m-0 text-center text-white">The Games Pit</p>
+    <footer class="py-5 footer row">
+        <div class="col-4">
+            <p class="m-0 text-center text-white">
+                <u>Social Media</u><br>
+                <i class="fas fa fa-twitter"></i><br>
+                <i class="fas fa fa-facebook"></i>
+            </p>
+        </div>
+        <div class="col-4">
+            <p class="m-0 text-center text-white">
+                <u>Find Us At:</u><br>
+                The Games Pit<br>
+                Zetland Street<br>
+                Wakefield<br>
+                WF1 1QT<br>
+                <br>
+                01924 368794
+            </p>
+        </div>
+        <div class="col-4">
+            <img src="media/map.png">
         </div>
     </footer>
     <!-- Bootstrap core JS-->
