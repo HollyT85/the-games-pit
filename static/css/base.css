@@ -6,7 +6,7 @@ html {
 
 .page-background {
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: fit-content;
     background-color: black;
 }
 
