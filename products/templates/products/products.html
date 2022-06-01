@@ -15,7 +15,7 @@
     <div class="row">
         {% for product in products %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="card h-80 border-0">
+                <div class="card h-80">
                     {% if product.image %}
                     <a href="">
                         <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -26,14 +26,14 @@
                     </a>
                     {% endif %}
                     <div class="card-body pb-0">
-                        <p class="mb-0">{{ product.name }}</p>
+                        <p class="mb-0"><b>{{ product.name }}</b></p>
                     </div>
-                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                    <div class="card-footer bg-white pt-0">
                         <div class="row">
                             <div class="col">
-                                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                <p class="lead mb-0 text-center"><b>£{{ product.price }}</b></p>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>

@@ -44,3 +44,16 @@ header {
 
 
 /* index.html */
+
+/* product cards */
+
+.card {
+    height: 375px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card img {
+    height: 250px;
+    max-width: fit-content;
+}
