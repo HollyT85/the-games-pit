@@ -64,14 +64,17 @@
 
     </header>
     <!-- Bottom nav - different shopping areas -->
-
     {% include 'includes/bottom-nav.html' %}
 
-    <div class="page-background row">
+    <div class="row">
         {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
         {% endif %}
-
+        </div>
+    </div>
+    <div class="row">
+    <div class="page-background">
+        
         {% block page_header %}
         {% endblock %}
 
@@ -81,6 +84,7 @@
         {% block postloadjs %}
         {% endblock %}
     </div>
+</div>
 
     <!-- Footer-->
     <footer class="py-5 footer row">
