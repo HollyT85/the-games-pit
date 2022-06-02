@@ -20,7 +20,7 @@ class SubCat(models.Model):
         return self.sub_cat
 
 
-class Products(models.Model):
+class Product(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.ForeignKey(
