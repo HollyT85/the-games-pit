@@ -32,7 +32,8 @@ class Product(models.Model):
     rrp = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     on_offer = models.BooleanField(default=False)
-    offer_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    offer_price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to='images/')
     created = models.DateTimeField(auto_now_add=True)
