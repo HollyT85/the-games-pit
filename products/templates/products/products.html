@@ -5,8 +5,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col text-white text-center">
-            <h3 class="uncial-text">Products</h3>
+        <div class="col text-center">
+            <h3 class="uncial-text my-5">Products</h3>
         </div>
     </div>
     <div class="row">
@@ -15,10 +15,10 @@
     <div class="row">
         {% for product in products %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="card h-80">
+                <div class="card bg-secondary">
                     {% if product.image %}
                     <a href="">
-                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <img class="card-img-top py-3 px-2" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
                     {% else %}
                     <a href="">
@@ -28,7 +28,7 @@
                     <div class="card-body pb-0">
                         <p class="mb-0"><b>{{ product.name }}</b></p>
                     </div>
-                    <div class="card-footer bg-white pt-0">
+                    <div class="card-footer pt-0">
                         <div class="row">
                             <div class="col">
                                 <p class="lead mb-0 text-center"><b>£{{ product.price }}</b></p>
