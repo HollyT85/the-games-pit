@@ -8,12 +8,14 @@ html {
     background-size: cover;
     height: fit-content;
     background-color: black;
+    overflow-x: hidden;
 }
 
 /* Base Template Styling */
 
 header {
     background-color: black;
+    height: fit-content;
 }
 
 .bottom-nav {
