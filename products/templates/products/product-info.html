@@ -7,9 +7,20 @@
         <h3 class="uncial-text">
             {{ product.name }}
         </h3>
+        {% if on_offer == true %}
+        <h5 class="text-danger">
+            <strike>
+                £{{ product.price }}
+            </strike>
+        </h5>
+        <h5 class="uncial-text">
+            £{{ product.offer_price }}
+        </h5>
+        {% else %}
         <h5 class="uncial-text">
             £{{ product.price }}
         </h5>
+        {% endif %}
     </div>
 </div>
 <div class="row py-5 px-5">

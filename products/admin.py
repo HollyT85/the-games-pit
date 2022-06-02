@@ -12,6 +12,8 @@ class ProductsAdmin(admin.ModelAdmin):
         'in_stock',
         'rrp',
         'price',
+        'on_offer',
+        'offer_price',
         'image',
         'created'
     )
