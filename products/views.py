@@ -9,21 +9,21 @@ def all_products(request):
     Products page view
     """
     products = Product.objects.all()
-    input = None
+    search_term = None
 
     if request.GET:
         if 'search' in request.GET:
-            input = request.GET['search']
-            if not input:
+            search_term = request.GET['search']
+            if not search_term:
                 messages.error(request, "Your search string was blank")
                 return redirect(reverse('products'))
             
-            results = Q(name__icontains=input) | Q(description__icontains=input)
+            results = Q(name__icontains=input) | Q(description__icontains=search_term)
             products = products.filter(results)
 
     context = {
         'products': products,
-        'search_term': input,
+        'search_term': search_term,
     }
 
     return render(request, 'products/products.html', context)
