@@ -42,6 +42,16 @@ header {
     color: #aec709;
 }
 
+.bluetext {
+    color:#0f4b63;
+}
+
+.center {
+    margin: auto;
+}
+
+
+
 .footer {
     background-color: black;
     margin-top: 1px;

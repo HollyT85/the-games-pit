@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg top-nav row">
     <div class="col-4">
         <!--Home Page link on every page-->
-        <a class="navbar-brand" href="{% url 'home' %}">The Games Pit</a>
+        <a class="navbar-brand uncial-text text-green" href="{% url 'home' %}">The Games Pit</a>
     </div>
     <div class="col-4">
         <!--Search-->
@@ -11,7 +11,7 @@
                 <div class="input-group-append">
                     <button class="form-control btn btn-black border border-black rounded-0" type="submit">
                         <span class="icon">
-                            <i class="fas fa-search"></i>
+                            <i class="fas fa-search text-green"></i>
                         </span>
                     </button>
                 </div>
@@ -25,8 +25,8 @@
                 <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <div class="text-center">
-                        <div><i class="fas fa-user fa-lg"></i></div>
-                        <p class="my-0">My Account</p>
+                        <div><i class="fas fa-user fa-lg text-green"></i></div>
+                        <p class="my-0 text-green uncial-text">My Account</p>
                     </div>
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -46,8 +46,8 @@
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                     href="">
                     <div class="text-center">
-                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                        <p class="my-0">
+                        <div><i class="fas fa-shopping-bag fa-lg text-green"></i></div>
+                        <p class="my-0 text-green uncial-text">
                             {% if grand_total %}
                             £{{ grand_total|floatformat:2 }}
                             {% else %}

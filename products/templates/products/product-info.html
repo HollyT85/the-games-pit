@@ -4,7 +4,7 @@
 {% block content %}
 <div class="row text-center">
     <div class="col-12 mx-4 mt-4 mb-0">
-        <h3 class="uncial-text">
+        <h3 class="uncial-text text-green">
             {{ product.name }}
         </h3>
         {% if on_offer == true %}
@@ -13,22 +13,21 @@
                 £{{ product.price }}
             </strike>
         </h5>
-        <h5 class="uncial-text">
+        <h5 class="uncial-text text-green">
             £{{ product.offer_price }}
         </h5>
-        {% else %}
-        <h5 class="uncial-text">
+        {% endif %}
+        <h5 class="uncial-text text-green">
             £{{ product.price }}
         </h5>
-        {% endif %}
     </div>
 </div>
 <div class="row py-5 px-5">
-    <div class="col bg-white">
-        <div class="image-container mx-0 py-5">
+    <div class="col-3 bg-white center">
+        <div class="image-box mx-0 py-5">
             {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid align-center" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
@@ -40,6 +39,11 @@
     <div class="col-6 bg-white border-left border-dark">
         <div class="py-5 mr-5">
             <p class="">{{ product.description }}</p>
+        </div>
+    </div>
+    <div class="col-3 bg-white border-left border-dark">
+        <div class="py-5 mr-5">
+            <p class="">Hello</p>
         </div>
     </div>
 </div>
