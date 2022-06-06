@@ -3,9 +3,17 @@
         <a class="navbar-brand" href="{% url 'home' %}">The Games Pit</a>
     </div>
     <div class="col-4">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+        <form method="GET" action="{% url 'products' %}">
+            <div class="input-group">
+                <input class="form-control border" type="text" name="search" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
     <div class="col-4">

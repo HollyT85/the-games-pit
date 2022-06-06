@@ -35,8 +35,11 @@ header {
 }
 
 .uncial-text {
-    color: lightgreen;
     font-family: 'Uncial Antiqua', sans-serif;
+}
+
+.text-green {
+    color: #aec709;
 }
 
 .footer {
