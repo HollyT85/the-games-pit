@@ -4,7 +4,7 @@ imports for functionality
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product
+from .models import Product, Category
 
 
 def all_products(request):
@@ -13,9 +13,15 @@ def all_products(request):
     """
     products = Product.objects.all()
     search_term = None
+    category = None
 
     # Search functionality
     if request.GET:
+        if 'category' in request.GET:
+            category = request.GET['category']
+            products = products.filter(category__main_cat__in=category)
+            category = Category.objects.filter(main_cat__in=category)
+
         if 'search' in request.GET:
             search_term = request.GET['search']
             if not search_term:
@@ -29,6 +35,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': search_term,
+        'category': category,
     }
 
     return render(request, 'products/products.html', context)
