@@ -15,13 +15,13 @@ def all_products(request):
     search_term = None
     category = None
 
-    # Search functionality
     if request.GET:
+        # filter functionality
         if 'category' in request.GET:
-            category = request.GET['category']
+            category = request.GET['category'].split(',')
             products = products.filter(category__main_cat__in=category)
             category = Category.objects.filter(main_cat__in=category)
-
+        # Search functionality
         if 'search' in request.GET:
             search_term = request.GET['search']
             if not search_term:
