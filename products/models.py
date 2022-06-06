@@ -1,10 +1,19 @@
+"""
+import db for functionality
+"""
 from django.db import models
 
 
 class Category(models.Model):
+    """
+    category model
+    """
     main_cat = models.CharField(max_length=255)
 
     class Meta:
+        """
+        correct incorrect spelling of categories
+        """
         verbose_name_plural = 'Categories'
 
     def __str__(self):
@@ -12,6 +21,9 @@ class Category(models.Model):
 
 
 class SubCat(models.Model):
+    """
+    sub-category model
+    """
     main_cat = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.CharField(max_length=255)
@@ -21,6 +33,9 @@ class SubCat(models.Model):
 
 
 class Product(models.Model):
+    """
+    product details
+    """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.ForeignKey(
@@ -39,6 +54,9 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        """
+        order by newest products
+        """
         ordering = ('-created',)
 
     def __str__(self):
