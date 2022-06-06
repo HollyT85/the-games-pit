@@ -8,9 +8,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'products' %}">All Products</a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,6 +30,8 @@
                     TCG
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=TCG">All TCG</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Pokemon</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Magic! The Gathering</a>
@@ -49,6 +48,8 @@
                     RPG
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=RPG">All RPG</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Dungeons & Dragons</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">D&D Miniatures</a>
@@ -69,6 +70,8 @@
                     Paints
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Paint">All Paint</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Contrast</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Base</a>
@@ -91,6 +94,8 @@
                     Games
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Games">All Games</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Card Games</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Board Games</a>
@@ -105,6 +110,8 @@
                     Accessories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Accessories">All Accessories</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Card Storage</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Brushes</a>
@@ -119,6 +126,8 @@
                     Events
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Events">All Events</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Pre-Release</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Board Games</a>
