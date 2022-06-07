@@ -60,6 +60,21 @@ header {
 
 /* index.html */
 
+.home-banner {
+    background-color: #aec709;
+    height: 50vh;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.home-img {
+    border-radius: 10px;
+    border: #0f4b63 1px solid;
+}
+
+
+
 /* product cards */
 
 .card {
