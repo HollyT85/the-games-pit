@@ -50,9 +50,9 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{% url 'products' %}?category=RPG">All RPG</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Dungeons & Dragons">Dungeons & Dragons</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Dungeons Dragons">Dungeons & Dragons</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=D&D Miniatures">D&D Miniatures</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=DD Miniatures">D&D Miniatures</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Vampire Masquerade">Vampire Masquerade</a>
                     <div class="dropdown-divider"></div>
@@ -96,11 +96,11 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{% url 'products' %}?category=Games">All Games</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Card Games</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Card">Card Games</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Board Games</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Board">Board Games</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">...</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Puzzle">Puzzle Games</a>
                 </div>
             </li>
             
@@ -112,11 +112,13 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{% url 'products' %}?category=Accessories">All Accessories</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Card Storage</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Card Storage">Card Storage</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Brushes</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Paint Brushes">Brushes</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">...</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Dice Bags">Dice & Bages</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Play Mats">Play Mats</a>
                 </div>
             </li>
 
