@@ -62,7 +62,7 @@ header {
 
 .home-banner {
     background-color: #aec709;
-    height: 50vh;
+    height: fit-content
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -87,3 +87,10 @@ header {
     height: 250px;
     max-width: fit-content;
 }
+
+/*Media Queries for different devices*/
+
+@media (max-width: 1200px) {
+    .home-banner {
+        display: none;
+    }
