@@ -11,6 +11,14 @@ html {
     overflow-x: hidden;
 }
 
+.bg-green {
+    background-color: #dce789 !important;
+}
+
+.bg-blue {
+    background-color: #00a7e9;
+}
+
 /* Base Template Styling */
 
 header {
@@ -66,7 +74,7 @@ header {
 
 .home-banner {
     background-color: #dce789;
-    height: fit-content
+    height: fit-content;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -82,23 +90,23 @@ header {
 /* product cards */
 
 .card {
-    height: 375px;
     margin-bottom: 10px;
     text-align: center;
+    height: 400px;
+    width: 250px;
+    margin: 10px auto;
 }
 
-.bg-green {
-    background-color: #dce789 !important;
-}
-
-.bg-blue {
-    background-color: #00a7e9;
-}
-
-.card img {
+.img-container {
     height: 250px;
-    max-width: fit-content;
 }
+
+.card-img {
+    max-height: 250px;
+}
+
+
+
 
 /*Media Queries for different devices*/
 
@@ -106,3 +114,4 @@ header {
     .home-banner {
         display: none;
     }
+}

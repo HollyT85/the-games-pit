@@ -7,49 +7,104 @@
     <div class="row">
         <div class="col-12 text-center">
             <h3 class="uncial-text my-5 text-green">Products</h3>
-            <div class="sort text-right">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-green uncial-text" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sort
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price(low to high)</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">By Price(high to low)</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=name=asc">Name(a-z)</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=name=desc">Name(z-a)</a>
+            <div class=" mt-1 mb-2 text-right">
+                <div class="my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-20">
+                        <select id="sort-selector"
+                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                            </option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                                (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                                (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                                (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
+                                (Z-A)</option>
+                        </select>
                     </div>
-                </li>
+
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
+</div>
 
-    </div>
-    <div class="row">
-        {% for product in products %}
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="card bg-green">
-                    <a href="{% url 'product_info' product.id %}">
-                        <img class="card-img-top py-3 px-2" src="{{ product.image.url }}" alt="{{ product.name }}">
-                    </a>
-                    <div class="card-body pb-0">
-                        <p class="mb-0"><b>{{ product.name }}</b></p>
-                    </div>
-                    <div class="card-footer pt-0">
-                        <div class="row">
-                            <div class="col">
-                                <p class="lead mb-0 text-center"><b>£{{ product.price }}</b></p>
-                            </div>
+<div class="row">
+    {% for product in products %}
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <div class="card bg-green">
+            <div class="my-auto img-container my-auto">
+                <a href="{% url 'product_info' product.id %}">
+                    <img class="card-img-top card-img py-2 px-2" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+            </div>
+            <div class="card-body pb-0">
+                <p class="mb-0"><b>{{ product.name }}</b></p>
+                {% if product.extra_cat %}
+                <div class="pb-0">
+                    <div class="row pb-0">
+                        <div class="col">
+                            <p class="my-1 text-center align-text-bottom">{{ product.extra_cat }}</p>
                         </div>
                     </div>
                 </div>
+                {% endif %}
             </div>
-        {% endfor %}
+            <div class="card-footer pt-0">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead mb-0 text-center"><b>£{{ product.price }}</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row">
+    <div class="back-to-top">
+        <a class="btt-link btn btn-success text-center mx-10 text-green">
+            Back To Top
+        </a>
     </div>
 </div>
 
+
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<!--Scroll to top-->
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+<!--Sort functionality-->
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}

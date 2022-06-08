@@ -4,7 +4,9 @@ imports for functionality
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product, Category, SubCat
+
 
 
 def all_products(request):
@@ -18,7 +20,7 @@ def all_products(request):
     direction = None
 
     if request.GET:
-        # sorting functionality 
+        # sorting functionality
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
@@ -30,8 +32,6 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-
-
         # filter functionality - main category
         if 'category' in request.GET:
             category = request.GET['category'].split(',')
