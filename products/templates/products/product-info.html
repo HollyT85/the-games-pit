@@ -16,37 +16,31 @@
         <h5 class="uncial-text text-green">
             £{{ product.offer_price }}
         </h5>
-        {% endif %}
+        {% else %}
         <h5 class="uncial-text text-green">
             £{{ product.price }}
         </h5>
+        {% endif %}
     </div>
 </div>
+
 <div class="row py-5 px-5">
-    <div class="col-3 bg-white center">
-        <div class="image-box mx-0 py-5">
-            {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid align-center" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-                {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                </a>
-            {% endif %}
+    <div class="col-3 bg-blue">
+        <div>
+            <a href="{{ product.image.url }}" target="_blank">
+                <img class="card-img-top img-fluid align-center my-5" src="{{ product.image.url }}" alt="{{ product.name }}">
+            </a>
         </div>
     </div>
-    <div class="col-6 bg-white border-left border-dark">
+    <div class="col-6 bg-green border-left border-dark">
         <div class="py-5 mr-5">
             <p class="">{{ product.description }}</p>
         </div>
     </div>
-    <div class="col-3 bg-white border-left border-dark">
+    <div class="col-3 bg-blue border-left border-dark">
         <div class="py-5 mr-5">
             <p class="">Hello</p>
         </div>
     </div>
 </div>
 {% endblock %}
-
-

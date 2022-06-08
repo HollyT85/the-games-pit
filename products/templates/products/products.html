@@ -5,8 +5,25 @@
 
 <div class="container">
     <div class="row">
-        <div class="col text-center">
-            <h3 class="uncial-text my-5 text-green">All Products</h3>
+        <div class="col-12 text-center">
+            <h3 class="uncial-text my-5 text-green">Products</h3>
+            <div class="sort text-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-green uncial-text" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sort
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price(low to high)</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">By Price(high to low)</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=name=asc">Name(a-z)</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=name=desc">Name(z-a)</a>
+                    </div>
+                </li>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -15,16 +32,10 @@
     <div class="row">
         {% for product in products %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="card bg-secondary">
-                    {% if product.image %}
+                <div class="card bg-green">
                     <a href="{% url 'product_info' product.id %}">
                         <img class="card-img-top py-3 px-2" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
-                    {% else %}
-                    <a href="">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                    </a>
-                    {% endif %}
                     <div class="card-body pb-0">
                         <p class="mb-0"><b>{{ product.name }}</b></p>
                     </div>

@@ -42,6 +42,10 @@ header {
     color: #aec709;
 }
 
+.text-green:hover {
+    color: #dce789;
+}
+
 .bluetext {
     color:#0f4b63;
 }
@@ -61,7 +65,7 @@ header {
 /* index.html */
 
 .home-banner {
-    background-color: #aec709;
+    background-color: #dce789;
     height: fit-content
     padding: 10px;
     margin: 10px;
@@ -81,6 +85,14 @@ header {
     height: 375px;
     margin-bottom: 10px;
     text-align: center;
+}
+
+.bg-green {
+    background-color: #dce789 !important;
+}
+
+.bg-blue {
+    background-color: #00a7e9;
 }
 
 .card img {
