@@ -37,16 +37,17 @@
         <div class="card bg-green">
             <div class="my-auto img-container my-auto">
                 <a href="{% url 'product_info' product.id %}">
-                    <img class="card-img-top card-img py-2 px-2" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top card-img " src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
             </div>
+            <hr>
             <div class="card-body pb-0">
                 <p class="mb-0"><b>{{ product.name }}</b></p>
                 {% if product.extra_cat %}
                 <div class="pb-0">
                     <div class="row pb-0">
                         <div class="col">
-                            <p class="my-1 text-center align-text-bottom">{{ product.extra_cat }}</p>
+                            <p class="text-center align-text-bottom">{{ product.extra_cat }}</p>
                         </div>
                     </div>
                 </div>
