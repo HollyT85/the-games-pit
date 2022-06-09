@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col text-center text-green uncial-text my-2">
+            <h3>Shopping Bag</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+                <div class="table-responsive">
+
+                </div>
+            {% else %}
+                <p>Your bag is empty.</p>
+                <a href="{ url 'products'}">Shop All Products Here</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
