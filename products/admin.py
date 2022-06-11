@@ -10,10 +10,10 @@ class ProductsAdmin(admin.ModelAdmin):
         'name',
         'description',
         'in_stock',
-        'rrp',
-        'price',
         'on_offer',
         'offer_price',
+        'rrp',
+        'price',
         'image',
         'created'
     )
