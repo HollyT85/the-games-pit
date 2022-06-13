@@ -1,11 +1,27 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from products.models import Product
+
 
 def bag_contents(request):
-
+    """
+    get bag contents
+    """
     bag_items = []
     total = 0
     no_of_products = 0
+    bag = request.session.get('bag', {})
+
+    for item_id, quantity in bag.items():
+        product = get_object_or_404(Product, pk=item_id)
+        total += quantity * product.price
+        no_of_products += quantity
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY)
@@ -18,7 +34,7 @@ def bag_contents(request):
 
     context = {
         'bag_items': bag_items,
-        'total': total, 
+        'total': total,
         'no_of_products': no_of_products,
         'delivery': delivery,
         'free_delivery_in': free_delivery_in,
