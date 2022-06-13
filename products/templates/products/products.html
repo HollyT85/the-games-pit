@@ -41,17 +41,20 @@
                 </a>
             </div>
             <hr>
-            <div class="card-body pb-0">
-                <p class="mb-0"><b>{{ product.name }}</b></p>
+            <div class="card-body my-0">
                 {% if product.extra_cat %}
                 <div class="pb-0">
                     <div class="row pb-0">
                         <div class="col">
-                            <p class="text-center align-text-bottom">{{ product.extra_cat }}</p>
+                            <p class="text-center my-0 py-0">{{ product.extra_cat }}</p>
+                            <p class="my-0 py-0"><b>{{ product.name }}</b></p>
                         </div>
                     </div>
                 </div>
+                {% else %}
+                <p class="mb-0"><b>{{ product.name }}</b></p>
                 {% endif %}
+
             </div>
             <div class="card-footer pt-0">
                 <div class="row">
