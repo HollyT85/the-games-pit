@@ -1,17 +1,43 @@
 <script type="text/javascript">
-// Increment quantity
-$('.increment-qty').click(function(e) {
-    e.preventDefault();
-    var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-    var currentValue = parseInt($(closestInput).val());
-    $(closestInput).val(currentValue + 1);
-    });
+    // Increment / Decrement within values
+    function enableDisable(itemId) {
+        var currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        var minusDisable = currentValue < 2;
+        var addDisable = currentValue > 5;
+        $(`#decrement-qty_${'itemId'}`).prop('disabled', minusDisable);
+        $(`#increment-qty_${'itemId'}`).prop('disabled', addDisable);
+    }
 
-    // Decrement quantity
-    $('.decrement-qty').click(function(e) {
-    e.preventDefault();
-    var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-    var currentValue = parseInt($(closestInput).val());
-    $(closestInput).val(currentValue - 1);
-    });
+    // Enablement/Disablement of all inputs
+    var allQtyInputs = $('.qty-input');
+    for(var i = 0; i <allQtyInputs.length; i++){
+        var itemId = $(allQtyInputs[i]).data('item_id');
+        enableDisable(itemId);
+    }
+
+    // Check enablement/disablement with change o input
+    $('.qty-input').change(function(){
+        var itemId = $(this).data('item_id');
+        enableDisable();
+    })
+        
+    // Increment quantity
+    $('.increment-qty').click(function(e) {
+        e.preventDefault();
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var currentValue = parseInt($(closestInput).val());
+        $(closestInput).val(currentValue + 1);
+        var itemId = $(this).data('item_id');
+        enableDisable(itemId)
+        });
+
+        // Decrement quantity
+        $('.decrement-qty').click(function(e) {
+        e.preventDefault();
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var currentValue = parseInt($(closestInput).val());
+        $(closestInput).val(currentValue - 1);
+        var itemId = $(this).data('item_id');
+        enableDisable(itemId)
+        });
 </script>
