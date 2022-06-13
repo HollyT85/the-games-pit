@@ -3,6 +3,9 @@ from .models import Category, Product, SubCat
 
 
 class ProductsAdmin(admin.ModelAdmin):
+    """
+    Display of products
+    """
     list_display = (
         'category',
         'sub_cat',
@@ -20,12 +23,18 @@ class ProductsAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Display of category
+    """
     list_display = (
         'main_cat',
     )
 
 
 class SubCatAdmin(admin.ModelAdmin):
+    """
+    Display of sub-category
+    """
     list_display = (
         'main_cat',
         'sub_cat'

@@ -43,27 +43,28 @@
 
             <div class="card-body card-name my-0">
                 {% if product.extra_cat %}
-                <div class="pb-0">
-                    <div class="row pb-0">
-                        <div class="col">
-                            <p class="text-center my-0 py-0">{{ product.extra_cat }}</p>
-                            <p class="my-0 py-0"><b>{{ product.name }}</b></p>
+                    <div class="pb-0">
+                        <div class="row pb-0">
+                            <div class="col">
+                                <p class="text-center my-0 py-0">{{ product.extra_cat }}</p>
+                                <p class="my-0 py-0"><b>{{ product.name }}</b></p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% else %}
-                <p class="mb-0"><b>{{ product.name }}</b></p>
+                    <p class="my-0 py-0"><b>{{ product.name }}</b></p>
                 {% endif %}
-
             </div>
+
             <div class="card-footer card-price pt-0">
                 <div class="row">
                     <div class="col">
-                        {% if on_offer == true %}
-                        <p class="lead mb-0 text-center"><strike>£{{ product.price }}</strike></p>
-                        <p class="lead mb-0 text-center"><b>£{{ product.offer_price }}</b></p>
+                        
+                        {% if product.on_offer %}
+                            <p class="text-center"><b>£{{ product.offer_price }}</b></p>
+                            <span class="badge badge-danger">Sale</span>
                         {% else %}
-                        <p class="lead mb-0 text-center"><b>£{{ product.price }}</b></p>
+                            <p class="text-center"><b>£{{ product.price }}</b></p>
                         {% endif %}
                     </div>
                 </div>
@@ -74,8 +75,8 @@
 </div>
 
 <div class="row">
-    <div class="back-to-top">
-        <a class="btt-link btn btn-success text-center mx-10 text-green">
+    <div class="back-to-top mx-6">
+        <a class="btt-link btn btn-dark text-center text-white">
             Back To Top
         </a>
     </div>

@@ -8,7 +8,6 @@ from django.db.models.functions import Lower
 from .models import Product, Category, SubCat
 
 
-
 def all_products(request):
     """
     View all products
@@ -50,7 +49,8 @@ def all_products(request):
                 return redirect(reverse('products'))
 
             results = Q(
-                name__icontains=input) | Q(description__icontains=search_term)
+                name__icontains=search_term) | Q(
+                    description__icontains=search_term)
             products = products.filter(results)
 
     current_sorting = f'{sort}_{direction}'
@@ -77,3 +77,12 @@ def product_info(request, product_id):
     }
 
     return render(request, 'products/product-info.html', context)
+
+
+def sale(request):
+    # hello
+    products = Product.objects.all().filter(on_offer=True)
+    context = {
+        'products': products,
+    }
+    return render(request, 'products/products.html', context)
