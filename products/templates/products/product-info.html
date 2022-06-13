@@ -54,7 +54,17 @@
                     <p><b>Quantity:</b></p>
                     <div class="form-group">
                         <div class="input-group w-25">
-                            <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="5" data_item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                            <div class="input-group-prepend">
+                                <button class="decrement-qty btn btn-dark" data_item_id="{{ product.id }}"
+                                id="decrement_qty_{{ product.id }}">-</button>
+                            </div>
+                            <input class="form-control qty_input" type="number" 
+                            name="quantity" value="1" min="1" max="5" data_item_id="{{ product.id }}" 
+                            id="id_qty_{{ product.id }}">
+                            <div class="input-group-append">
+                                <button class="increment-qty btn btn-dark" data_item_id="{{ product.id }}"
+                            id="increment_qty_{{ product.id }}">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,4 +77,9 @@
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include "products/includes/quantity.html" %}
 {% endblock %}
