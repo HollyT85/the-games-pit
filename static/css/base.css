@@ -92,21 +92,30 @@ header {
 .card {
     margin-bottom: 10px;
     text-align: center;
-    height: 400px;
+    height: 425px;
     width: 250px;
     margin: 10px auto;
 }
 
 .img-container {
     height: 250px;
+    border-bottom: #aec709 1px solid;
 }
 
 .card-img {
-    max-height: 240px;
+    max-height: 230px;
     max-width: 225px;
     border: #aec709 solid 1px;
     background-color: white;
     margin-top: 10px;
+}
+
+.card-name {
+    height: 100px;
+}
+
+.card-price {
+    height: 75px ;
 }
 
 
