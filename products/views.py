@@ -80,7 +80,9 @@ def product_info(request, product_id):
 
 
 def sale(request):
-    # hello
+    """
+    Filter by sale products
+    """
     products = Product.objects.all().filter(on_offer=True)
     context = {
         'products': products,
