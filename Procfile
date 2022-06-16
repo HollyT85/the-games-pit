@@ -1,0 +1,1 @@
+web: gunicorn the_games_pit.wsgi:application
