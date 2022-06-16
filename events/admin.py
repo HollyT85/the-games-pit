@@ -12,3 +12,6 @@ class EventsAdmin(admin.ModelAdmin):
         'date',
         'time',
     )
+
+
+admin.site.register(Events, EventsAdmin)

@@ -12,6 +12,8 @@ class Events(models.Model):
     description = models.TextField()
     date = models.DateField(null=True, blank=True)
     time = models.TimeField(null=True, blank=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(upload_to='images/')
 
     class Meta:
         """
