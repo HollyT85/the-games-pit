@@ -3,7 +3,6 @@ import db for functionality
 """
 from django.db import models
 
-
 class Category(models.Model):
     """
     category model
