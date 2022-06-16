@@ -11,6 +11,8 @@ class EventsAdmin(admin.ModelAdmin):
         'description',
         'date',
         'time',
+        'image_url',
+        'image'
     )
 
 

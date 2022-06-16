@@ -13,7 +13,7 @@ class Events(models.Model):
     date = models.DateField(null=True, blank=True)
     time = models.TimeField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
 
     class Meta:
         """
