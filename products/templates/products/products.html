@@ -37,7 +37,7 @@
         <div class="card bg-green">
             <div class="my-auto img-container my-auto">
                 <a href="{% url 'product_info' product.id %}">
-                    <img class="card-img-top card-img " src="{{ product.image }}" alt="{{ product.name }}">
+                    <img class="card-img-top card-img " src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
             </div>
 
