@@ -28,11 +28,19 @@
                         <td class="py-3">
                             <p class="my-0 text-green">{{ item.product.name }}</p>
                         </td>
+                        
+                            {% if item.product.on_offer %}
+                        <td class="py-3">
+                            <p class="my-0 text-green">£{{ item.product.offer_price }}</p>
+                        </td>
+                        {% else %}
                         <td class="py-3">
                             <p class="my-0 text-green">£{{ item.product.price }}</p>
                         </td>
+                        {% endif %}
+                        
                         <td class="py-3 w-25">
-                            <form class="form update-form" method="POST" action="">
+                            <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group w-75">
                                     <div class="input-group">
