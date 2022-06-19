@@ -1,16 +1,18 @@
 """
 imports for functionality
 """
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Events
 
 
-def all_events(request):
+def all_events(request, event_id):
     """
-    retrieve all events
+    Individual product details
     """
-    events = Events.objects.all()
+    event = get_object_or_404(Events, pk=event_id)
+
     context = {
-        'events': events,
+        'event': event,
     }
+
     return render(request, 'events/events.html', context)
