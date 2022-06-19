@@ -34,9 +34,15 @@
                         <td class="py-3 w-25">
                             <p class="my-0 text-green">{{ item.quantity }}</p>
                         </td>
+                        {% if item.product.on_offer %}
+                        <td class="py-3">
+                            <p class="my-0 text-green">£{{ item.product.offer_price }}</p>
+                        </td>
+                        {% else %}
                         <td class="py-3">
                             <p class="my-0 text-green">£{{ item.product.price }}</p>
                         </td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                     <tr>
