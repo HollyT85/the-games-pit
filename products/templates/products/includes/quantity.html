@@ -15,10 +15,10 @@
         enableDisable(itemId);
     }
 
-    // Check enablement/disablement with change o input
+    // Check enablement/disablement with change of input
     $('.qty-input').change(function(){
         var itemId = $(this).data('item_id');
-        enableDisable();
+        enableDisable(itemId);
     })
         
     // Increment quantity

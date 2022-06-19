@@ -17,7 +17,7 @@
                 </div>
             </div>
         {% endif %}
-        {% if on_offer == true %}
+        {% if product.on_offer == true %}
         
         <h5 class="uncial-text text-green">
             £{{ product.offer_price }}
@@ -69,7 +69,6 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="{% url 'products' %}" class="btn btn-dark">Keep Shopping</a>
                     <input type="submit" class="btn btn-dark" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">

@@ -36,9 +36,14 @@
     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
         <div class="card bg-green">
             <div class="my-auto img-container my-auto">
+                {% if product.in_stock %}
                 <a href="{% url 'product_info' product.id %}">
                     <img class="card-img-top card-img " src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
+                {% else %}
+                <img class="card-img-top card-img " src="{{ product.image.url }}" alt="{{ product.name }}">
+                <span class="badge badge-danger">Out of Stock</span>
+                {% endif %}
             </div>
 
             <div class="card-body card-name my-0">
@@ -61,7 +66,8 @@
                     <div class="col">
                         
                         {% if product.on_offer %}
-                            <p class="text-center"><b>£{{ product.offer_price }}</b></p>
+                        <p class="text-center text-danger my-0 py-0"><strike>£{{ product.price }}</strike></p>
+                            <p class="text-center my-0 py-0"><b>£{{ product.offer_price }}</b></p>
                             <span class="badge badge-danger">Sale</span>
                         {% else %}
                             <p class="text-center"><b>£{{ product.price }}</b></p>
