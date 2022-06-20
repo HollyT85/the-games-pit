@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+{% load bag_tools %}
+
 <div class="container">
     <div class="row">
         <div class="col text-center text-green uncial-text my-2">
@@ -86,11 +88,11 @@
                         <!--Item total - col 5-->
                         {% if item.product.on_offer %}
                         <td class="py-3">
-                            <p class="my-0 text-green">£{{ item.product.price }}</p>
+                            <p class="my-0 text-green">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
                         </td>
                         {% else %}
                         <td class="py-3">
-                            <p class="my-0 text-green">£{{ item.product.price }}</p>
+                            <p class="my-0 text-green">£{{ item.product.price | offer_total:item.quantity }}</p>
                         </td>
                         {% endif %}
                     </tr>

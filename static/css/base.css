@@ -118,6 +118,7 @@ header {
     height: 75px ;
 }
 
+/* remove scroll bar on number input boxes - W3 schools */
 input::-webkit-outer-spin-button, 
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
