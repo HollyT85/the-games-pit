@@ -69,8 +69,27 @@
     <div class="row">
         {% if messages %}
         <div class="message-container">
-        {% endif %}
+            {% for message in messages %}
+                {% with message.level as level %}
+                    <!--error-->
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/error.html' %}
+                    <!--warning-->
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/warning.html' %}
+                    <!--Success-->
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/success.html' %}
+                    <!--Anything else (info)-->
+                    {% else %}
+                        {% include 'includes/toasts/info.html' %}
+                    {% endif %}
+                {% endwith %}
+                
+            {% endfor %}
         </div>
+        {% endif %}
+        
     </div>
     <div class="row">
     <div class="page-background col-12">
@@ -82,6 +101,9 @@
         {% endblock %}
 
         {% block postloadjs %}
+        <script type="text/javascript">
+            $('.toast').toast('show');
+        </script>
         {% endblock %}
     </div>
 </div>

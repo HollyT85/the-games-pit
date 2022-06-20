@@ -118,6 +118,23 @@ header {
     height: 75px ;
 }
 
+/* messages */
+
+.message-container{
+    position: fixed;
+    top:72px;
+    right: 15px;
+    z-index: 999999999999999;
+}
+
+.toast-custom {
+    overflow: visible;
+}
+
+.toast-capper{
+    height: 2px;
+}
+
 /* remove scroll bar on number input boxes - W3 schools */
 input::-webkit-outer-spin-button, 
 input::-webkit-inner-spin-button {
