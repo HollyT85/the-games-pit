@@ -1,7 +1,7 @@
 """
 imports for functionality
 """
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def view_bag(request):
@@ -38,8 +38,18 @@ def update_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
-    else:
-        bag.pop(item_id)
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
+
+def delete_item(request, item_id):
+    """
+    delete item in bag
+    """
+    bag = request.session.get('bag', {})
+    bag.pop(item_id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('view_bag'))
+
