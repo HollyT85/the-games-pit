@@ -118,7 +118,7 @@ header {
     height: 75px ;
 }
 
-/* messages */
+/* toasts */
 
 .message-container{
     position: fixed;
@@ -133,6 +133,12 @@ header {
 
 .toast-capper{
     height: 2px;
+}
+
+.bag-notification {
+    max-height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* remove scroll bar on number input boxes - W3 schools */
