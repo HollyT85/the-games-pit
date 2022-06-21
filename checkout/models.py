@@ -18,13 +18,13 @@ class Order(models.Model):
         max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=60)
     email = models.EmailField(max_length=254)
-    phone = models.IntegerField(
+    phone = models.CharField(
         max_length=12, blank=True, null=True)
     address_line1 = models.CharField(max_length=80)
     address_line2 = models.CharField(
         max_length=80, blank=True, null=True)
     town_city = models.CharField(max_length=80)
-    county = models.CharField(max_lenth=80)
+    county = models.CharField(max_length=80)
     post_code = models.CharField(max_length=8)
     country = models.CharField(
         max_length=30, blank=True, null=True)
@@ -84,7 +84,6 @@ class OrderLineItem(models.Model):
         """
         Override save to update lineitem and subtotals
         """
-
         if self.product.on_offer:
             self.lineitem_total = self.product.offer_price * self.quantity
         else:
