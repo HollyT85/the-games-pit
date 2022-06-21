@@ -45,8 +45,8 @@ def all_products(request):
         if 'search' in request.GET:
             search_term = request.GET['search']
             if not search_term:
-                messages.error(request, "Your search string was blank")
-                return redirect(reverse('products'))
+                messages.error(request, f'No search term entered.')
+                return redirect(reverse('home'))
 
             results = Q(
                 name__icontains=search_term) | Q(
