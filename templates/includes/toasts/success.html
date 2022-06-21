@@ -37,6 +37,10 @@
                     <p class="mb-1">
                         Free delivery in <b>£{{ free_delivery_in }}</b>
                     </p>
+                    {% else %}
+                    <p class="mb-1">
+                        Free delivery is yours!</b>
+                    </p>
                     {% endif %}
                 <a href="{% url 'view_bag' %}" class="btn btn-dark">
                     <span>Go To Secure Checkout</span>
