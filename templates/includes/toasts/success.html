@@ -24,6 +24,7 @@
                 <div class="col-8">
                     <p><b>Name: </b>{{ item.product.name }}</p>
                     <p><b>Quantity:</b> {{ item.quantity }}</p>
+                    <hr>
                 </div>
             </div>
             {% endfor %}
@@ -31,7 +32,12 @@
         <div class="row">
             <div class="col">
                 <p><b>Sub-total: </b>
-                    <span class="">£{{ total|floatformat:2 }}</span></p>
+                    <span>£{{ total|floatformat:2 }}</span></p>
+                    {% if free_delivery_in > 0 %}
+                    <p class="mb-1">
+                        Free delivery in <b>£{{ free_delivery_in }}</b>
+                    </p>
+                    {% endif %}
                 <a href="{% url 'view_bag' %}" class="btn btn-dark">
                     <span>Go To Secure Checkout</span>
                 </a>
