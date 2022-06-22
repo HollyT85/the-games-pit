@@ -11,6 +11,19 @@ html {
     overflow-x: hidden;
 }
 
+.login-form {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+.logout-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .bg-green {
     background-color: #dce789 !important;
 }
