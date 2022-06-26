@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-{% block content %}
 {% load bag_tools %}
+{% block content %}
+
 
 <div class="container">
     <div class="row">
-        <div class="col text-center text-green uncial-text my-2">
-            <h3>Shopping Bag</h3>
+        <div class="col">
+            <h2 class="text-green uncial-text text-center my-3">Shopping Bag</h2>
         </div>
     </div>
     <div class="row">
@@ -112,7 +113,7 @@
                     <tr>
                         <td colspan="5" class="text-right">
 
-                            <a href="" class="btn btn-dark">
+                            <a href="{% url 'checkout' %}" class="btn btn-dark">
                                 <span class="text-green"><b>Secure Checkout</b></span>
                                 <span>
                                     <i class="fas fa-lock text-green"></i>

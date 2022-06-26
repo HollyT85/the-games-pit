@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bag_tools %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-green uncial-text text-center my-3">Order Summary</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped table-dark">
+                    <thead class="text-green">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Item Total</th>
+                        </tr>
+                    </thead>
+                    {% for item in bag_items %}
+                    <tr>
+                        <!-- Image - col 1-->
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        </td>
+                        <!-- Name - col 2-->
+                        <td class="py-3">
+                            <p class="my-0 text-green">{{ item.product.name }}</p>
+                        </td>
+                        <!--Price - col 3-->
+                        {% if item.product.on_offer %}
+                        <td class="py-3">
+                            <p class="my-0 text-green">£{{ item.product.offer_price }}</p>
+                        </td>
+                        {% else %}
+                        <td class="py-3">
+                            <p class="my-0 text-green">£{{ item.product.price }}</p>
+                        </td>
+                        {% endif %}
+                        <!--Quantity - col 4-->
+                        <td class="py-3 w-25">
+                            <p class="my-0 text-green">{{ item.product.quantity }}</p>
+                        </td>
+                        <!--Item total - col 5-->
+                        {% if item.product.on_offer %}
+                        <td class="py-3">
+                            <p class="my-0 text-green">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
+                        </td>
+                        {% else %}
+                        <td class="py-3">
+                            <p class="my-0 text-green">£{{ item.product.price | offer_total:item.quantity }}</p>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right text-green">
+                            <h6><b>Bag Total:</b> £{{ total|floatformat:2 }}</h6>
+                            <h6><b>Delivery:</b> £{{ delivery|floatformat:2 }}</h6>
+                            <h5 class="mt-4"><b>Grand Total:</b> £{{ grand_total|floatformat:2 }}</h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <p>Please fill out the form to complete the checkout process.</p>
+            <form action="{% url 'checkout' %}" method="POST" id="payment">
+                {% csrf_token %}
+                <fieldset class="px-2 my-2">
+                    <legend class="text-green">Details</legend>
+                    {{ order_form.full_name }}
+                    {{ order_form.email}}
+                    {{ order_form.phone}}
+                </fieldset>
+                <fieldset class="px-2 my-2">
+                    <legend class="text-green">Delivery</legend>
+                    {{ order_form.address_line1 | as_crispy_field }}
+                    {{ order_form.address_line2 | as_crispy_field }}
+                    {{ order_form.town_city | as_crispy_field }}
+                    {{ order_form.post_code | as_crispy_field }}
+                    {{ order_form.county | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
+                </fieldset>
+                {% if user.is_authenticated %}
+					<label class="form-check-label" for="save-info">Save order to profile</label>
+                        <input class="form-check-input px-2" type="checkbox" id="save-info" name="save-info" checked>
+				{% else %}
+					<label class="form-check-label" for="id-save-info">
+                        <a class="text-info" href="{% url 'account_signup' %}">Create Account</a> or 
+                        <a class="text-info" href="{% url 'account_login' %}">Login</a> to save this order.
+                    </label>
+				{% endif %}
+                <fieldset class="px-3">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                    
+                    <div class="mb-3" id="card-element"><!--For stripe info--></div>
+
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"><!--form errors--></div>
+                </fieldset>
+                <div class="submit-button">
+                    <a href="{% url 'view_bag' %}" class="btn btn-dark">Return to Bag</a>
+                </div>
+                <button id="submit-button" class="btn btn-dark">Complete Order</button>
+                <p class="">
+                    Your card will be charged <b>£{{ grand_total|floatformat:2 }}</b>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
