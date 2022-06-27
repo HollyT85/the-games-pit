@@ -47,10 +47,10 @@ class Order(models.Model):
         update total with each new line of items added
         """
         self.sub_total = self.lineitems.aggregate(
-            Sum('lineitem_total'))['lineitem_total__sum']
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
         if self.sub_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.sub_total * settings.STANDARD_DELIVERY
+            self.delivery_cost = self.sub_total * settings.STANDARD_DELIVERY / 100
         else:
             self.delivery_cost = 0
         self.grand_total = self.sub_total + self.delivery_cost

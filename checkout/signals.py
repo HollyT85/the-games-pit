@@ -13,7 +13,7 @@ def update_total(sender, instance, created, **kwargs):
 
 
 @receiver(post_delete, sender=OrderLineItem)
-def update_total(sender, instance, **kwargs):
+def update_total_delete(sender, instance, **kwargs):
     """
     update total when orderlineitem is deleted
     """
