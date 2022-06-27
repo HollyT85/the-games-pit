@@ -26,9 +26,7 @@ SECRET_KEY = '57rbcu7YAyFR1g/E75WOUuPKItiB3b6SVjtHuz7M'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    the-games-pit.herokuapp.com
-]
+ALLOWED_HOSTS = ['the-games-pit.herokuapp.com']
 
 
 # Application definition
