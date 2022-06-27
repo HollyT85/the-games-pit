@@ -1,8 +1,8 @@
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+<div class="toast" data-autohide="false">
     <div class="w-100 toast-capper bg-success"></div>
     <div class="toast-header">
-        <strong class="mr-auto">Success</strong>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <b class="mr-auto">Success</b>
+        <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
@@ -14,39 +14,36 @@
             </div>
         </div>
         {% if grand_total %}
-        <p><b>Your bag:</b></p>
-        <div class="bag-notification">
-            {% for item in bag_items %}
+            <p>Your Bag:</p>
+            <div class="bag-notification">
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="w-100" src="{{ item.product.image.url }}">
+                        </div>
+                        <div class="col-8">
+                            <p><b>Name:</b> {{ item.product.name }}</p>
+                            <p><b>Quantity:</b> {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
             <div class="row">
-                <div class="col-4">
-                    <img class="w-100" src="{{ item.product.image.url }}">
-                </div>
-                <div class="col-8">
-                    <p><b>Name: </b>{{ item.product.name }}</p>
-                    <p><b>Quantity:</b> {{ item.quantity }}</p>
-                    <hr>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        <div class="row">
-            <div class="col">
-                <p><b>Sub-total: </b>
-                    <span>£{{ total|floatformat:2 }}</span></p>
+                <div class="col">
+                    <p class="">
+                        Total{% if free_delivery_in > 0 %} (Exc. delivery){% endif %}: 
+                        <span class="float-right">£{{ total|floatformat:2 }}</span>
+                    </p>
                     {% if free_delivery_in > 0 %}
-                    <p class="mb-1">
-                        Free delivery in <b>£{{ free_delivery_in }}</b>
-                    </p>
-                    {% else %}
-                    <p class="mb-1">
-                        Free delivery is yours!</b>
-                    </p>
+                        <p class="text-center">
+                            Spend <b>£{{ free_delivery_in }}</b> more to get free delivery!
+                        </p>
                     {% endif %}
-                <a href="{% url 'view_bag' %}" class="btn btn-dark">
-                    <span>Go To Bag</span>
-                </a>
+                    <a href="{% url 'view_bag' %}" class="btn btn-dark">
+                        <span>Go To Bag</span>
+                    </a>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
-    {% endif %}
 </div>
