@@ -44,7 +44,7 @@ def webhook(request):
         # handle_payment_intent_succeeded(payment_intent)
     elif event.type == 'payment_method.attached':
         payment_method = event.data.object # contains a stripe.PaymentMethod
-        # Then define and call a method to handle the successful attachment
+        # Then define and call a method to handle the successful attachment 
         # of a PaymentMethod.
         # handle_payment_method_attached(payment_method)
         # ... handle other event types

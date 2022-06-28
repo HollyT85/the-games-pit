@@ -51,8 +51,11 @@ header {
 }
 
 .zombie{
-    height: 50px;
     float: left;
+}
+
+.heading {
+    size:300px;
 }
 
 .uncial-text {
@@ -60,7 +63,7 @@ header {
 }
 
 .text-green {
-    color: #aec709;
+    color: #049bea;
 }
 
 .text-green:hover {
