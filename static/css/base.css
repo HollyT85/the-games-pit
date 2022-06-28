@@ -24,8 +24,8 @@ html {
     margin-right: auto;
 }
 
-.bg-green {
-    background-color: #dce789 !important;
+.card-bg-blue {
+    background-color: #93bed5 !important;
 }
 
 .bg-blue {
@@ -51,7 +51,14 @@ header {
 }
 
 .zombie{
+    height: 150px;
     float: left;
+}
+
+.event-box{
+    background-color: #93bed5;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .heading {
@@ -64,10 +71,6 @@ header {
 
 .text-green {
     color: #049bea;
-}
-
-.text-green:hover {
-    color: #dce789;
 }
 
 .bluetext {
@@ -115,13 +118,13 @@ header {
 
 .img-container {
     height: 250px;
-    border-bottom: #aec709 1px solid;
+    border-bottom: #172b35 1px solid;
 }
 
 .card-img {
     max-height: 230px;
     max-width: 225px;
-    border: #aec709 solid 1px;
+    border: #172b35 solid 1px;
     background-color: white;
     margin-top: 10px;
 }

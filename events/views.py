@@ -5,14 +5,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Events
 
 
-def all_events(request, event_id):
-    """
-    Individual product details
-    """
-    event = get_object_or_404(Events, pk=event_id)
+def all_events(request):
+    
+    return render(request, 'events/events.html')
 
-    context = {
-        'event': event,
-    }
 
-    return render(request, 'events/events.html', context)
+def special_events(request):
+    
+    return render(request, 'events/special_events.html')

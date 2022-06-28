@@ -34,7 +34,7 @@
 <div class="row">
     {% for product in products %}
     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-        <div class="card bg-green">
+        <div class="card card-bg-blue">
             <div class="my-auto img-container my-auto">
                 {% if product.in_stock %}
                 <a href="{% url 'product_info' product.id %}">
