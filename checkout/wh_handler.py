@@ -48,17 +48,17 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
-                    email__iexact=shipping_details.email,
-                    phone__iexact=shipping_details.phone,
-                    address_line1__iexact=shipping_details.line1,
-                    address_line2__iexact=shipping_details.line2,
-                    town_city__iexact=shipping_details.city,
-                    county__iexact=shipping_details.state,
-                    post_code__iexact=shipping_details.postal_code,
-                    country__iexact=shipping_details.country,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=shipping_details.phone,
+                    country__iexact=shipping_details.address.country,
+                    post_code__iexact=shipping_details.address.postal_code,
+                    town_city__iexact=shipping_details.address.city,
+                    address_line1__iexact=shipping_details.address.line1,
+                    address_line2__iexact=shipping_details.address.line2,
+                    county__iexact=shipping_details.address.state,
                     grand_total=grand_total,
                     original_bag=bag,
-                    stripe_piid=piid
+                    stripe_piid=piid,
                 )
                 order_exists = True
                 break
@@ -74,17 +74,17 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    full_name=shipping_details.name,
-                    email=shipping_details.email,
-                    phone=shipping_details.phone,
-                    address_line1=shipping_details.line1,
-                    address_line2=shipping_details.line2,
-                    town_city=shipping_details.city,
-                    county=shipping_details.state,
-                    post_code=shipping_details.postal_code,
-                    country=shipping_details.country,
+                    full_name__iexact=shipping_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=shipping_details.phone,
+                    country__iexact=shipping_details.address.country,
+                    post_code__iexact=shipping_details.address.postal_code,
+                    town_city__iexact=shipping_details.address.city,
+                    address_line1__iexact=shipping_details.address.line1,
+                    address_line2__iexact=shipping_details.address.line2,
+                    county__iexact=shipping_details.address.state,
                     original_bag=bag,
-                    stripe_piid=piid
+                    stripe_piid=piid,
                 )
                 product = Product.objects.get(id=item_id)
                 for item_id, item_data in json.loads(bag).items():
