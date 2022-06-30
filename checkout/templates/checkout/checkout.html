@@ -107,6 +107,8 @@
                     </div>
 
                     <div class="mb-3 text-danger" id="card-errors" role="alert"><!--form errors--></div>
+                    <!--client secret to get piid -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                 <div class="submit-button">
                     <a href="{% url 'view_bag' %}" class="btn btn-dark">Return to Bag</a>
