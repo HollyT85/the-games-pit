@@ -8,6 +8,7 @@ var clientSecret = $('#client_secret_id').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var card = elements.create('card', {style: style});
+card.mount('#card-element');
 var style = {
     base: {
         color: '#000',
@@ -23,8 +24,6 @@ var style = {
         iconColor: '#dc3545'
     },
 };
-
-card.mount('#card-element');
 
 // errors 
 
@@ -64,7 +63,7 @@ form.addEventListener('submit', function(ev) {
 
     $.post(url, postData).done(function(){
         stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
+            payment_method:{
                 card: card,
                 billing_details: {
                     name: $.trim(form.full_name.value),
@@ -73,11 +72,12 @@ form.addEventListener('submit', function(ev) {
                     address:{
                         line1: $.trim(form.address_line1.value),
                         line2: $.trim(form.address_line2.value),
-                        state: $.trim(form.county.value),
                         city: $.trim(form.town_city.value),
-                        country: $.trim(form.country.value)
+                        state: $.trim(form.county.value),
+                        country: $.trim(form.country.value),
                     }
-                },
+                }
+            },
             shipping: {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone.value),
@@ -87,10 +87,9 @@ form.addEventListener('submit', function(ev) {
                     city: $.trim(form.town_city.value),
                     state: $.trim(form.county.value),
                     postal_code: $.trim(form.post_code.value),
-                    country: $.trim(form.country.value)
-                    }
+
                 }
-            }
+            },
         }).then(function(result) {
             if (result.error) {
                 var cardErrors = document.getElementById('card-errors');
@@ -111,5 +110,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function(){
         // reload page if fails
         location.reload();
-    });
+    })
 });

@@ -27,7 +27,7 @@ class Order(models.Model):
     county = models.CharField(max_length=80)
     post_code = models.CharField(max_length=8)
     country = models.CharField(
-        max_length=30, blank=True, null=True)
+        max_length=30, blank=False, null=False, default='GB')
     date = models.DateTimeField(auto_now_add=True)
     sub_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
