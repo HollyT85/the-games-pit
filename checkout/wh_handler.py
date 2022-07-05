@@ -1,13 +1,16 @@
-from django.http import HttpResponse
-
-from .models import Order, OrderLineItem
-from products.models import Product
-
+"""
+imports for functionality
+"""
 import json
 import time
 
+from django.http import HttpResponse
 
-class StripeWH_Handler:
+from products.models import Product
+from .models import Order, OrderLineItem
+
+
+class StripeWHHandler:
     """
     stripe webhooks
     """
@@ -35,7 +38,7 @@ class StripeWH_Handler:
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        grand_total = round(intent.data.charges[0].amount / 100, 2)
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # blank data if empty
         for field, value in shipping_details.address.items():
@@ -43,6 +46,7 @@ class StripeWH_Handler:
                 shipping_details.address[field] = None
 
         order_exists = False
+        # try 5 times
         attempt = 1
         while attempt <= 5:
             try:
@@ -62,7 +66,7 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
-                
+
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
@@ -86,8 +90,8 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_piid=piid,
                 )
-                product = Product.objects.get(id=item_id)
                 for item_id, item_data in json.loads(bag).items():
+                    product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
@@ -102,9 +106,9 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-                    
+
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Order created', 
+            content=f'Webhook received: {event["type"]} | SUCCESS: Order created',
             status=200)
 
     def handle_failed_payment_intent(self, event):
