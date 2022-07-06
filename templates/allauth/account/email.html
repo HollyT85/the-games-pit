@@ -7,9 +7,9 @@
 {% block content %}
     <h2 class="text-green uncial-text text-center my-3">{% trans "E-mail Addresses" %}</h2>
 {% if user.emailaddress_set.all %}
-<p class="text-green">{% trans 'The following e-mail addresses are associated with your account:' %}</p>
+<p class="text-green text-center">{% trans 'The following e-mail addresses are associated with your account:' %}</p>
 
-<form action="{% url 'account_email' %}" class="email_list text-green" method="post">
+<form action="{% url 'account_email' %}" class="email_list text-center text-green bg-dark w-25 custom-form" method="post">
 {% csrf_token %}
 <fieldset class="blockLabels">
 
@@ -21,6 +21,7 @@
 
 {{ emailaddress.email }}
     {% if emailaddress.verified %}
+
     <span class="verified text-green">{% trans "Verified" %}</span>
     {% else %}
     <span class="unverified text-green">{% trans "Unverified" %}</span>
@@ -31,26 +32,26 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction btn btn-dark" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction btn btn-dark" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
-      <button class="primaryAction btn btn-dark" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+      <button class="secondaryAction btn btn-secondary m-2" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+      <button class="secondaryAction btn btn-secondary m-2" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+      <button class="primaryAction btn btn-secondary m-2" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
 </div>
 
 </fieldset>
 </form>
 
 {% else %}
-<p class="text-green"><strong>{% trans 'Warning:'%}</strong> {% trans "You currently do not have any e-mail address set up. You should really add an e-mail address so you can receive notifications, reset your password, etc." %}</p>
+<p class="text-green text-center"><strong>{% trans 'Warning:'%}</strong> {% trans "You currently do not have any e-mail address set up. You should really add an e-mail address so you can receive notifications, reset your password, etc." %}</p>
 
 {% endif %}
 
 
     <h2 class="text-green uncial-text text-center my-3">{% trans "Add E-mail Address" %}</h2>
 
-    <form method="post" action="{% url 'account_email' %}" class="add_email">
+    <form method="post" action="{% url 'account_email' %}" class="add_email text-center custom-form mb-2 text-green bg-dark w-25">
         {% csrf_token %}
         {{ form | crispy }}
-        <button name="action_add" class="btn btn-dark" type="submit">{% trans "Add E-mail" %}</button>
+        <button name="action_add" class="btn btn-secondary" type="submit">{% trans "Add E-mail" %}</button>
     </form>
 
 {% endblock %}
