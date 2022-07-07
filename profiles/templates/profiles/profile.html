@@ -9,6 +9,23 @@
             <h2 class="text-green uncial-text text-center my-3">Profile</h2>
         </div>
     </div>
-    {{ profile }}
+    <div class="row">
+        <div class="col-12">
+            <h5 class="text-green uncial-text text-center">Delivery Information:</h5>
+            <form class="custom-form w-50 bg-dark mb-5" action="{ url 'profile' }" method="POST" id="update-profile">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class="btn btn-secondary">Update</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h5 class="text-green uncial-text text-center">Previous Orders:</h5>
+            {{ orders }}
+        </div>
+    </div>
+    
+    
 </div>
 {% endblock %}
