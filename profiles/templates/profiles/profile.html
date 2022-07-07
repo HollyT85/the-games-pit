@@ -22,7 +22,41 @@
     <div class="row">
         <div class="col-12">
             <h5 class="text-green uncial-text text-center">Previous Orders:</h5>
-            {{ orders }}
+            <div class="table-resposive previous-orders">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order No</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>
+                                    {{ order.order_number }}
+                                </td>
+                                <td>
+                                    {{ order.date }}
+                                </td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                            <li>{{ item.product.name }} x {{ item.quantity }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>
+                                    £{{ order.grand_total}}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     </div>
     
