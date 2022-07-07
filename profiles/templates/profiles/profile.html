@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-12">
             <h5 class="text-green uncial-text text-center">Previous Orders:</h5>
-            <div class="table-resposive previous-orders">
+            <div class="table w-75 mt-5 mx-auto mb-5 table-striped table-dark previous-orders">
                 <table>
                     <thead>
                         <tr>
@@ -45,6 +45,7 @@
                                     <ul class="list-unstyled">
                                         {% for item in order.lineitems.all %}
                                             <li>{{ item.product.name }} x {{ item.quantity }}</li>
+                                            <hr>
                                         {% endfor %}
                                     </ul>
                                 </td>
@@ -52,6 +53,7 @@
                                     £{{ order.grand_total}}
                                 </td>
                             </tr>
+                            
                         {% endfor %}
                     </tbody>
 
