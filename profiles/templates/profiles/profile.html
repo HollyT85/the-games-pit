@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-12">
             <h5 class="text-green uncial-text text-center">Delivery Information:</h5>
-            <form class="custom-form w-50 bg-dark mb-5" action="{ url 'profile' }" method="POST" id="update-profile">
+            <form class="custom-form w-50 bg-dark mb-5" action="{% url 'profile' %}" method="POST" id="update-profile">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button class="btn btn-secondary">Update</button>
