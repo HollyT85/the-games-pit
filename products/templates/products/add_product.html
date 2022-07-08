@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bag_tools %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-green uncial-text text-center my-3">Manage Products</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form method="POST" action="{% url 'add_product' %}" class="w-75 custom-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-right">
+                    <a class="btn btn-dark" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn btn-dark" type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

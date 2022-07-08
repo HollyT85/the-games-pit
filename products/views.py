@@ -5,7 +5,9 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+
 from .models import Product, Category, SubCat
+from .forms import ProductForm
 
 
 def all_products(request):
@@ -88,3 +90,16 @@ def sale(request):
         'products': products,
     }
     return render(request, 'products/products.html', context)
+
+
+def admin_add_product(request):
+    """
+    allow superusers to add products
+    """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
