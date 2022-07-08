@@ -1,0 +1,24 @@
+Hello {{ order.full_name }}
+
+This is confirmation of your order from The Games Pit. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Grand Total: £{{ order.grand_total }}
+
+Your order will be shipped to:
+{{ order.address_line1 }}
+{{ order.address_line2 }}
+{{ order.town_or_city }}
+{{ order.county }}
+{{ order.post_code }}
+{{ order.country }}
+
+Thank you for your order!
+
+Sincerely,
+
+The Games Pit

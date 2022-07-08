@@ -1,0 +1,1 @@
+The Games Pit Order Confirmation: {{ order.order_number }}
