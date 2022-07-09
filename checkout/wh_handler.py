@@ -10,8 +10,8 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 from products.models import Product
-from .models import Order, OrderLineItem
 from profiles.models import UserProfile
+from .models import Order, OrderLineItem
 
 
 class StripeWHHandler:
@@ -44,18 +44,16 @@ class StripeWHHandler:
 
     def handle_event(self, event):
         """
-        handle unexpected / unknown event
+        Handle an unknown / unusual webhook event
         """
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
-            status=200
-        )
+            status=200)
 
     def handle_successful_payment_intent(self, event):
         """
         handle successful payment intent
         """
-
         intent = event.data.object
         piid = intent.id
         bag = intent.metadata.bag
@@ -76,7 +74,7 @@ class StripeWHHandler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone,
+                profile.default_phone = shipping_details.phone,
                 profile.default_address_line1 = shipping_details.address.line1,
                 profile.default_address_line2 = shipping_details.address.line2,
                 profile.default_town_city = shipping_details.address.city,
@@ -93,7 +91,7 @@ class StripeWHHandler:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
-                    phone_number__iexact=shipping_details.phone,
+                    phone__iexact=shipping_details.phone,
                     address_line1__iexact=shipping_details.address.line1,
                     address_line2__iexact=shipping_details.address.line2,
                     town_city__iexact=shipping_details.address.city,
@@ -110,6 +108,7 @@ class StripeWHHandler:
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+
         if order_exists:
             self._send_order_conf_email(order)
             return HttpResponse(
@@ -122,7 +121,7 @@ class StripeWHHandler:
                     full_name=shipping_details.name,
                     user_profile=profile,
                     email=billing_details.email,
-                    phone_number=shipping_details.phone,
+                    phone=shipping_details.phone,
                     address_line1=shipping_details.address.line1,
                     address_line2=shipping_details.address.line2,
                     town_city=shipping_details.address.city,
@@ -149,6 +148,7 @@ class StripeWHHandler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         self._send_order_conf_email(order)
+
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Order created',
             status=200)

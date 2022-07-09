@@ -18,11 +18,8 @@ class ProductForm(forms.ModelForm):
         categories = Category.objects.all()
         sub_cats = SubCat.objects.all()
 
-        c_friendly_name = [(c.id, c.get_friendly_name()) for c in categories]
-        sc_friendly_name = [(sc.id, sc.get_friendly_name()) for sc in sub_cats]
-
-        self.fields['category'].choices = c_friendly_name
-        self.fields['sub_cat'].choices = sc_friendly_name
+        self.fields['category'].choices = categories
+        self.fields['sub_cat'].choices = sub_cats
 
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'custom-form'
+            field.widget.attrs['class'] = ''
