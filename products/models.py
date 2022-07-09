@@ -9,6 +9,7 @@ class Category(models.Model):
     category model
     """
     main_cat = models.CharField(max_length=255)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     class Meta:
         """
@@ -18,6 +19,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.main_cat
+    
+    def get_friendly_name(self):
+        """
+        friendly name instead of id
+        """
+        return self.friendly_name
 
 
 class SubCat(models.Model):
