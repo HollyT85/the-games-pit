@@ -80,7 +80,10 @@
                     <input type="submit" class="btn btn-dark rounded-0" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-
+                {% if request.user.is_superuser %}
+                    <a class="btn btn-dark btn-sm my-2 mx-1" href="{% url 'admin_edit_product' product.id %}">Edit</a>
+                    <a class="btn btn-dark btn-sm my-2" href="{% url 'admin_delete_product' product.id %}">Delete</a>
+                {% endif %}
             </div>
         </form>
     </div>

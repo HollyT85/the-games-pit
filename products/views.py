@@ -3,6 +3,7 @@ imports for functionality
 """
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -92,10 +93,15 @@ def sale(request):
     return render(request, 'products/products.html', context)
 
 
+@login_required
 def admin_add_product(request):
     """
     allow superusers to add products
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorised to do this.')
+        return redirect(reverse('home'))
+    
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -116,10 +122,15 @@ def admin_add_product(request):
     return render(request, template, context)
 
 
+@login_required()
 def admin_edit_product(request, product_id):
     """
     allow superusers to edit a product
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorised to do this.')
+        return redirect(reverse('home'))
+    
     product = get_object_or_404(Product, pk=product_id)
 
     if request.method == 'POST':
@@ -143,10 +154,15 @@ def admin_edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def admin_delete_product(request, product_id):
     """
     allow superuser to delete product
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorised to do this.')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product successfully deleted')
