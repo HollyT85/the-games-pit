@@ -124,7 +124,7 @@ WSGI_APPLICATION = 'the_games_pit.wsgi.application'
 
 if "DATABASE_URL" in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse('postgres://teucdbqnptduop:99abd2baebd68c40b5dc809a0971e607cf551ea6271b113cc00e22d0c795c08a@ec2-34-248-169-69.eu-west-1.compute.amazonaws.com:5432/d6856og8ikvj6i')
+        'default': dj_database_url.parse('os.environ('DATABASE_URL')')
     }
 else:
     DATABASES = {
