@@ -26,7 +26,7 @@ SECRET_KEY = '54dx8h$vk8xi5^xylmsnje@070@$dojj-d4xp=bzz*paox$)8)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['the-games-pit.herokuapp.com', 'localhost']
 
 
 # Application definition
