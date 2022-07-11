@@ -99,9 +99,10 @@ def admin_add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
+            product = form.save()
             form.save()
             messages.success(request, 'Product successfully added')
-            return redirect(reverse('admin_add_product'))
+            return redirect(reverse('product_info', args=[product.id]))
         else:
             messages.error(request, 'Product not added; try again')
     else:
@@ -113,3 +114,40 @@ def admin_add_product(request):
     }
 
     return render(request, template, context)
+
+
+def admin_edit_product(request, product_id):
+    """
+    allow superusers to edit a product
+    """
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product successfully edited')
+            return redirect(reverse('product_info', args=[product.id]))
+        else:
+            messages.error(request, 'Product not edited; try again')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product
+    }
+
+    return render(request, template, context)
+
+
+def admin_delete_product(request, product_id):
+    """
+    allow superuser to delete product
+    """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product successfully deleted')
+    return redirect(reverse('home'))

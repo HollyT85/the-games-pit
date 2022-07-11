@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bag_tools %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-green uncial-text text-center my-3">Edit Product</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form method="POST" action="{% url 'admin_edit_product' product.id %}" class="w-75 mb-5 custom-form bg-dark text-green" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-right">
+                    <a class="btn btn-secondary float-left" href="{% url 'home' %}">Cancel</a>
+                    <button class="btn btn-secondary" type="submit">Save Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

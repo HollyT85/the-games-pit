@@ -72,6 +72,10 @@
                         {% else %}
                             <p class="text-center"><b>£{{ product.price }}</b></p>
                         {% endif %}
+                        {% if request.user.is_superuser %}
+                            <a class="btn btn-dark btn-sm" href="{% url 'admin_edit_product' product.id %}">Edit</a>
+                            <a class="btn btn-dark btn-sm" href="{% url 'admin_delete_product' product.id %}">Delete</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
