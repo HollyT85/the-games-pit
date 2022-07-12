@@ -4,29 +4,29 @@
 {% block content %}
 <!--Title & Price-->
 <div class="row text-center">
-    <div class="col-12 mx-4 mt-4 mb-0">
-        <h3 class="uncial-text text-blue">
+    <div class="col-12">
+        <h3 class="uncial-text text-blue my-3">
             {{ product.name }}
         </h3>
+        <!--display extra category if it exists-->
         {% if product.extra_cat %}
-        <div class="pb-0">
-            <div class="row pb-0">
-                <div class="col ">
-                    <p class="my-1 text-center text-blue uncial-text">{{ product.extra_cat }}</p>
+            <div class="pb-0">
+                <div class="row pb-0">
+                    <div class="col ">
+                        <p class="my-1 text-center text-blue uncial-text">{{ product.extra_cat }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
+        <!--show old price and new offer price if item is on offer-->
         {% if product.on_offer %}
-
-        <h5 class="uncial-text text-blue">
-            £{{ product.offer_price }}
-        </h5>
-
+            <h5 class="uncial-text text-blue">
+                £{{ product.offer_price }}
+            </h5>
         {% else %}
-        <h5 class="text-blue uncial-text">
-            £{{ product.price }}
-        </h5>
+            <h5 class="text-blue uncial-text">
+                £{{ product.price }}
+            </h5>
         {% endif %}
     </div>
 </div>
@@ -35,8 +35,7 @@
     <div class="col-3 bg-blue">
         <div>
             <a href="{{ product.image.url }}" target="_blank">
-                <img class="card-img-top align-center my-5" src="{{ product.image.url }}"
-                    alt="{{ product.name }}">
+                <img class="card-img-top align-center my-5" src="{{ product.image.url }}" alt="{{ product.name }}">
             </a>
         </div>
     </div>
@@ -47,7 +46,6 @@
         </div>
     </div>
     <!--Add to Shopping Bag-->
-
     <div class="col-3 bg-blue border-left border-dark">
         <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
             {% csrf_token %}
@@ -65,7 +63,6 @@
                                     </span>
                                 </button>
                             </div>
-                            
                             <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
                                 max="5" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             <div class="input-group-append">
@@ -83,26 +80,28 @@
                     <input type="submit" class="btn btn-dark rounded-0" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <!--Don't allow to add to bag if item isn't in stock-->
                 {% else %}
-                <div class="row">
-                    <div class="col-12">
-                        <p class="mt-5"><b>This item is currently out of stock</b></p>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="mt-5"><b>This item is currently out of stock</b></p>
+                        </div>
                     </div>
-                </div>
-                
                 {% endif %}
+                <!--Allow superusers to edit and delete items-->
                 {% if request.user.is_superuser %}
                 <div class="row">
                     <div class="col-12">
-                    <a class="btn btn-dark btn-sm my-2 mx-1" href="{% url 'admin_edit_product' product.id %}">Edit</a>
-                    <a class="btn btn-dark btn-sm my-2" href="{% url 'admin_delete_product' product.id %}">Delete</a>
+                        <a class="btn btn-dark btn-sm my-2 mx-1"
+                            href="{% url 'admin_edit_product' product.id %}">Edit</a>
+                        <a class="btn btn-dark btn-sm my-2"
+                            href="{% url 'admin_delete_product' product.id %}">Delete</a>
+                    </div>
                 </div>
-            </div>
-                    {% endif %}
+                {% endif %}
             </div>
         </form>
     </div>
-
 </div>
 {% endblock %}
 

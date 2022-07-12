@@ -1,5 +1,5 @@
 """
-functionlity
+imports for functionality
 """
 from decimal import Decimal
 from django.conf import settings
@@ -9,7 +9,7 @@ from products.models import Product
 
 def bag_contents(request):
     """
-    get bag contents
+    get bag contents, calculate delivery total and grand total
     """
     bag_items = []
     total = 0

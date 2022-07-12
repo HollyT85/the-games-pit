@@ -1,5 +1,6 @@
+"""Imports for functionality"""
 from django import forms
-from .models import Category, SubCat, Product
+from .models import Category, Product
 
 
 class ProductForm(forms.ModelForm):

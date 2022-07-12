@@ -1,4 +1,4 @@
-from django.contrib import admin
+"""Imports for functionality"""
 from django.urls import path
 from . import views
 

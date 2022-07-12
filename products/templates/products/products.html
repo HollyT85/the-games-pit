@@ -6,9 +6,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
+            <!--category is page name-->
             {% for c in category %}
-            <h3 class="uncial-text my-5 text-blue">{{ c }}</h3>
+                <h3 class="uncial-text my-5 text-blue">{{ c }}</h3>
             {% endfor %}
+            <!--sorting items-->
             <div class=" mt-1 mb-2 text-right">
                 <div class="float-right mt-0">
                     <div class="sort-select-wrapper w-20">
@@ -26,7 +28,6 @@
                                 (Z-A)</option>
                         </select>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -35,22 +36,21 @@
 
 <div class="row">
     {% for product in products %}
-    
     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
         <div class="card card-bg-blue">
             <div class="my-auto img-container my-auto">
                 {% if product.in_stock %}
-                <a href="{% url 'product_info' product.id %}">
-                    <img class="card-img-top card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
+                    <a href="{% url 'product_info' product.id %}">
+                        <img class="card-img-top card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                <!--Put a badge on if item is not in stock-->
                 {% else %}
-                <a href="{% url 'product_info' product.id %}">
-                    <img class="card-img-top card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-                <span class="badge badge-danger">Out of Stock</span>
+                    <a href="{% url 'product_info' product.id %}">
+                        <img class="card-img-top card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                    <span class="badge badge-danger">Out of Stock</span>
                 {% endif %}
             </div>
-
             <div class="card-body card-name my-0">
                 {% if product.extra_cat %}
                     <div class="pb-0">
@@ -65,18 +65,18 @@
                     <p class="my-0 py-0"><b>{{ product.name }}</b></p>
                 {% endif %}
             </div>
-
             <div class="card-footer card-price pt-0">
                 <div class="row">
                     <div class="col">
-                        
+                        <!--show offer price if product on offer-->
                         {% if product.on_offer %}
-                        <p class="text-center text-danger my-0 py-0"><strike>£{{ product.price }}</strike></p>
+                            <p class="text-center text-danger my-0 py-0"><strike>£{{ product.price }}</strike></p>
                             <p class="text-center my-0 py-0"><b>£{{ product.offer_price }}</b></p>
                             <span class="badge badge-danger">Sale</span>
                         {% else %}
                             <p class="text-center"><b>£{{ product.price }}</b></p>
                         {% endif %}
+                        <!--allow superusers to edit and delete items-->
                         {% if request.user.is_superuser %}
                             <a class="btn btn-dark btn-sm" href="{% url 'admin_edit_product' product.id %}">Edit</a>
                             <a class="btn btn-dark btn-sm" href="{% url 'admin_delete_product' product.id %}">Delete</a>
@@ -86,15 +86,13 @@
             </div>
         </div>
     </div>
+    <!--If there are no items, make users aware-->
     {% empty %}
-    <div class="container">
-        <p class="text-blue text-center">There are currently no products. Check back soon</p>
-    </div>
-    
+        <div class="container">
+            <p class="text-blue text-center">There are currently no products. Check back soon</p>
+        </div>
     {% endfor %}
-    
 </div>
-
 <div class="row">
     <div class="back-to-top mx-6">
         <a class="btn btn-dark text-center">

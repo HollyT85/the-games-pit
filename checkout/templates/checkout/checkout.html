@@ -16,7 +16,6 @@
                 <table class="table table-sm table-striped table-dark">
                     <thead class="text-blue">
                         <tr>
-                            <th scope="col"></th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
@@ -25,37 +24,33 @@
                     </thead>
                     {% for item in bag_items %}
                     <tr>
-                        <!-- Image - col 1-->
-                        <td class="p-3 w-25">
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
-                        </td>
-                        <!-- Name - col 2-->
+                        <!-- Name - col 1-->
                         <td class="py-3">
                             <p class="my-0 text-blue">{{ item.product.name }}</p>
                         </td>
-                        <!--Price - col 3-->
+                        <!--Price - col 2-->
                         {% if item.product.on_offer %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.offer_price }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.offer_price }}</p>
+                            </td>
                         {% else %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.price }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.price }}</p>
+                            </td>
                         {% endif %}
-                        <!--Quantity - col 4-->
+                        <!--Quantity - col 3-->
                         <td class="py-3 w-25">
                             <p class="my-0 text-blue">{{ item.quantity }}</p>
                         </td>
-                        <!--Item total - col 5-->
+                        <!--Item total - col 4-->
                         {% if item.product.on_offer %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
+                            </td>
                         {% else %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.price | offer_total:item.quantity }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.price | offer_total:item.quantity }}</p>
+                            </td>
                         {% endif %}
                     </tr>
                     {% endfor %}
@@ -91,22 +86,22 @@
                     {{ order_form.country | as_crispy_field }}
                 </fieldset>
                 {% if user.is_authenticated %}
-					<label class="form-check-label text-blue " for="save-info">Save order to profile</label>
-                        <input class="form-check-input mx-4" type="checkbox" id="save-info" name="save-info" checked>
-				{% else %}
-					<label class="form-check-label" for="save-info">
-                        <a class="text-info" href="{% url 'account_signup' %}">Create Account</a> or 
-                        <a class="text-info" href="{% url 'account_login' %}">Login</a> to save this order.
-                    </label>
-				{% endif %}
+                <label class="form-check-label text-blue " for="save-info">Save order to profile</label>
+                <input class="form-check-input mx-4" type="checkbox" id="save-info" name="save-info" checked>
+                {% else %}
+                <label class="form-check-label" for="save-info">
+                    <a class="text-info" href="{% url 'account_signup' %}">Create Account</a> or
+                    <a class="text-info" href="{% url 'account_login' %}">Login</a> to save this order.
+                </label>
+                {% endif %}
                 <fieldset class="px-3">
                     <legend class=" text-blue uncial-text my-3">Payment</legend>
                     <!--stripe payment-->
                     <div class="my-3" id="card-element">
-                        
                     </div>
-
-                    <div class="mb-3 text-danger" id="card-errors" role="alert"><!--form errors--></div>
+                    <!--form errors-->
+                    <div class="mb-3 text-danger" id="card-errors" role="alert">
+                    </div>
                     <!--client secret to get piid -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
@@ -114,7 +109,6 @@
                     <a href="{% url 'view_bag' %}" class="btn btn-dark">Return to Bag</a>
                     <button id="submit-button" class="btn btn-dark">Complete Order</button>
                 </div>
-                
                 <p class="text-blue my-3">
                     Your card will be charged <b>£{{ grand_total|floatformat:2 }}</b>
                 </p>
@@ -127,8 +121,8 @@
 
 <!--Stripe-->
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"stripe_public_key_id" }}
-    {{ client_secret|json_script:"client_secret_id" }}
-    <script src="{% static 'checkout/js/stripe.js' %}"></script>
+{{ block.super }}
+{{ stripe_public_key|json_script:"stripe_public_key_id" }}
+{{ client_secret|json_script:"client_secret_id" }}
+<script src="{% static 'checkout/js/stripe.js' %}"></script>
 {% endblock %}

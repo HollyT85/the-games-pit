@@ -19,7 +19,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.main_cat
-    
+
     def get_friendly_name(self):
         """
         friendly name instead of id

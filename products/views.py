@@ -48,7 +48,7 @@ def all_products(request):
         if 'search' in request.GET:
             search_term = request.GET['search']
             if not search_term:
-                messages.error(request, f'No search term entered.')
+                messages.error(request, 'No search term entered.')
                 return redirect(reverse('home'))
 
             results = Q(
@@ -101,7 +101,7 @@ def admin_add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorised to do this.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -130,7 +130,7 @@ def admin_edit_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorised to do this.')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
 
     if request.method == 'POST':

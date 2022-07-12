@@ -12,7 +12,9 @@
     </div>
     <div class="row">
         <div class="col">
-            <form method="POST" action="{% url 'admin_edit_product' product.id %}" class="w-75 mb-5 custom-form bg-dark text-blue" enctype="multipart/form-data">
+            <!--Form to edit product-->
+            <form method="POST" action="{% url 'admin_edit_product' product.id %}"
+                class="w-75 mb-5 custom-form bg-dark text-blue" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-right">
@@ -25,4 +27,3 @@
 </div>
 
 {% endblock %}
-

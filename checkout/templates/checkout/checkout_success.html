@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<!--Let users know their order was successful-->
 <div class="container">
     <div class="row">
         <div class="col">
@@ -10,8 +11,10 @@
     </div>
     <div class="row">
         <div class="col text-center">
-            <p class=text-blue>Thank you for your order.<br>
-            An email will be sent to {{ order.email }} confirming your order details.</p>
+            <p class=text-blue>
+                Thank you for your order.<br>
+                An email will be sent to {{ order.email }} confirming your order details.
+            </p>
         </div>
     </div>
     <div class="row">

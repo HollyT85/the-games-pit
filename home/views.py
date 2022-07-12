@@ -1,3 +1,4 @@
+"""Imports for functionality"""
 from django.shortcuts import render
 
 
@@ -20,4 +21,3 @@ def error_500_view(request):
     500 error
     """
     return render(request, 'home/500.html')
-

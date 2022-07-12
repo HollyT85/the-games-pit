@@ -36,13 +36,13 @@
                         </td>
                         <!--Price - col 3-->
                         {% if item.product.on_offer %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.offer_price }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.offer_price }}</p>
+                            </td>
                         {% else %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.price }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.price }}</p>
+                            </td>
                         {% endif %}
                         <!--Quantity - col 4-->
                         <td class="py-3 w-25">
@@ -74,8 +74,8 @@
                                                     </button>
                                                 </div>
                                                 <div>
-                                                    <span class="remove-item btn btn-dark mx-2" id="remove_{{ item.item_id }}"
-                                                    data-size="{{ item.size }}">
+                                                    <span class="remove-item btn btn-dark mx-2"
+                                                        id="remove_{{ item.item_id }}" data-size="{{ item.size }}">
                                                         <i class="fas fa-trash green-text"></i>
                                                     </span>
                                                 </div>
@@ -88,31 +88,31 @@
                         </td>
                         <!--Item total - col 5-->
                         {% if item.product.on_offer %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
+                            </td>
                         {% else %}
-                        <td class="py-3">
-                            <p class="my-0 text-blue">£{{ item.product.price | offer_total:item.quantity }}</p>
-                        </td>
+                            <td class="py-3">
+                                <p class="my-0 text-blue">£{{ item.product.price | offer_total:item.quantity }}</p>
+                            </td>
                         {% endif %}
                     </tr>
                     {% endfor %}
                     <tr>
+                        <!--Total inc. delivery-->
                         <td colspan="5" class="pt-5 text-right text-blue">
                             <h6><b>Bag Total:</b> £{{ total|floatformat:2 }}</h6>
                             <h6><b>Delivery:</b> £{{ delivery|floatformat:2 }}</h6>
                             <h5 class="mt-4"><b>Grand Total:</b> £{{ grand_total|floatformat:2 }}</h5>
                             {% if free_delivery_in > 0 %}
-                            <p class="mb-1">
-                                Free delivery in <b>£{{ free_delivery_in }}</b>
-                            </p>
+                                <p class="mb-1">
+                                    Free delivery in <b>£{{ free_delivery_in }}</b>
+                                </p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-
                             <a href="{% url 'checkout' %}" class="btn btn-dark">
                                 <span class="text-blue"><b>Secure Checkout</b></span>
                                 <span>
@@ -123,9 +123,10 @@
                     </tr>
                 </table>
             </div>
+            <!--Allow users to easily navigate back home if bag is empty-->
             {% else %}
-            <p class="text-center text-blue uncial-text">Your bag is empty.</p>
-            <a href="{ url 'home'}" class="btn btn-dark mb-3">Return Home</a>
+                <p class="text-center text-blue uncial-text">Your bag is empty.</p>
+                <a href="{ url 'home'}" class="btn btn-dark mb-3">Return Home</a>
             {% endif %}
         </div>
     </div>
@@ -135,26 +136,26 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include "products/includes/quantity.html"%}
-<script type="text/javascript">
-    // update item quantity
-    $('.update-item').click(function (e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
+    <script type="text/javascript">
+        // update item quantity
+        $('.update-item').click(function (e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        })
 
-    // remove item(s) from bag
-    $('.remove-item').click(function (e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/delete/${itemId}/`;
-        var data = {
-            'csrfmiddlewaretoken': csrfToken,
-        }
+        // remove item(s) from bag
+        $('.remove-item').click(function (e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            var url = `/bag/delete/${itemId}/`;
+            var data = {
+                'csrfmiddlewaretoken': csrfToken,
+            }
 
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            })
-    })
-</script>
+            $.post(url, data)
+                .done(function () {
+                    location.reload();
+                })
+        })
+    </script>
 {% endblock %}

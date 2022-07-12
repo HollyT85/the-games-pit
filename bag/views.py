@@ -1,8 +1,10 @@
 """
 imports for functionality
 """
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404)
 from django.contrib import messages
+
 from products.models import Product
 
 
@@ -24,7 +26,9 @@ def add_to_bag(request, item_id):
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
-        messages.success(request, f'You now have {bag[item_id]} {product.name} in your bag!')
+        messages.success(
+            request, f'You now have {bag[item_id]} {product.name} \
+                in your bag!')
     else:
         bag[item_id] = quantity
         messages.success(request, f'Added {product.name} to your bag!')
@@ -44,7 +48,9 @@ def update_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, f'You now have {bag[item_id]} {product.name} in your bag!')
+        messages.success(
+            request, f'You now have {bag[item_id]} {product.name} \
+                in your bag!')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -66,5 +72,5 @@ def delete_item(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Something has gone wrong removing (e).')
+        messages.error(request, f'Something has gone wrong removing {e}.')
         return HttpResponse(status=500)

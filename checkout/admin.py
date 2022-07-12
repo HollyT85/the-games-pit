@@ -15,7 +15,7 @@ class OrderLineItemAdminInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     """
-    Order Admin
+    Order Admin; read only, fields, and display
     """
     inlines = (OrderLineItemAdminInline,)
 
@@ -26,7 +26,7 @@ class OrderAdmin(admin.ModelAdmin):
     fields = (
         'order_number', 'user_profile', 'date', 'full_name', 'email', 'phone',
         'address_line1', 'address_line2', 'town_city', 'county', 'post_code',
-        'country','delivery_cost', 'sub_total', 'grand_total', 'original_bag',
+        'country', 'delivery_cost', 'sub_total', 'grand_total', 'original_bag',
         'stripe_piid'
     )
 
