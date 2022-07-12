@@ -103,18 +103,42 @@ header {
 
 /* index.html */
 
-.home-banner {
-    background-color: #dce789;
-    height: fit-content;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
+.home-container {
+    position:relative;
+    width: 100%;
 }
 
-.home-img {
+.home-container img {
     border-radius: 10px;
-    border: #0f4b63 1px solid;
+    border: 2px white solid;
+    margin-top: 15px;
+    width: 85%;
+    max-height: 350px;
 }
+
+.home-container a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+
+
+.home-images {
+    
+
+}
+
 
 
 
@@ -185,11 +209,7 @@ input[type=number] {
 
 /*Media Queries for different devices*/
 
-@media (max-width: 1200px) {
-    .home-banner {
-        display: none;
-    }
-}
+
 
 /*Stripe*/
 .StripeElement,
