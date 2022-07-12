@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg top-nav row">
     <div class="col-6">
         <!--Home Page link on every page-->
-        <a class="navbar-brand uncial-text text-green" href="{% url 'home' %}">The Games Pit</a>
+        <a class="navbar-brand uncial-text text-blue" href="{% url 'home' %}">The Games Pit</a>
     </div>
 
     <div class="col-6">
@@ -11,8 +11,8 @@
                 <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <div class="text-center">
-                        <div><i class="fas fa-user fa-lg text-green"></i></div>
-                        <p class="my-0 text-green uncial-text">My Account</p>
+                        <div><i class="fas fa-user fa-lg text-blue"></i></div>
+                        <p class="my-0 text-blue uncial-text">My Account</p>
                     </div>
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -32,8 +32,8 @@
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                     href="{% url 'view_bag' %}">
                     <div class="text-center">
-                        <div><i class="fas fa-shopping-bag fa-lg text-green"></i></div>
-                        <p class="my-0 text-green uncial-text">
+                        <div><i class="fas fa-shopping-bag fa-lg text-blue"></i></div>
+                        <p class="my-0 text-blue uncial-text">
                             {% if grand_total %}
                             £{{ grand_total|floatformat:2 }}
                             {% else %}

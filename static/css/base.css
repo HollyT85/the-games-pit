@@ -81,7 +81,7 @@ header {
     font-family: 'Uncial Antiqua', sans-serif;
 }
 
-.text-green {
+.text-blue {
     color: #049bea;
 }
 
@@ -129,7 +129,7 @@ header {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-
+    border: 2px #00a7e9 solid;
 }
 
 

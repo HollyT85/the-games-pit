@@ -5,26 +5,26 @@
 <!--Title & Price-->
 <div class="row text-center">
     <div class="col-12 mx-4 mt-4 mb-0">
-        <h3 class="uncial-text text-green">
+        <h3 class="uncial-text text-blue">
             {{ product.name }}
         </h3>
         {% if product.extra_cat %}
         <div class="pb-0">
             <div class="row pb-0">
                 <div class="col ">
-                    <p class="my-1 text-center text-green uncial-text">{{ product.extra_cat }}</p>
+                    <p class="my-1 text-center text-blue uncial-text">{{ product.extra_cat }}</p>
                 </div>
             </div>
         </div>
         {% endif %}
         {% if product.on_offer %}
 
-        <h5 class="uncial-text text-green">
+        <h5 class="uncial-text text-blue">
             £{{ product.offer_price }}
         </h5>
 
         {% else %}
-        <h5 class="text-green uncial-text">
+        <h5 class="text-blue uncial-text">
             £{{ product.price }}
         </h5>
         {% endif %}

@@ -7,12 +7,12 @@
 
 {% block content %}
 
-<h2 class="text-green uncial-text text-center my-3">{% trans "Sign In" %}</h2>
+<h2 class="text-blue uncial-text text-center my-3">{% trans "Sign In" %}</h2>
 
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p class="text-green text-center">{% blocktrans with site.name as site_name %}Please sign in with one
+<p class="text-blue text-center">{% blocktrans with site.name as site_name %}Please sign in with one
 of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
@@ -29,11 +29,11 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p class="text-green uncial-text text-center">{% blocktrans %}If you have not created an account yet, then please
+<p class="text-blue uncial-text text-center">{% blocktrans %}If you have not created an account yet, then please
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login text-center text-green bg-dark w-25 login-form" method="POST" action="{% url 'account_login' %}">
+<form class="login text-center text-blue bg-dark w-25 login-form" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
   {{ form | crispy }}
   {% if redirect_field_value %}

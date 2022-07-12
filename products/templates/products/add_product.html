@@ -7,12 +7,12 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2 class="text-green uncial-text text-center my-3">Manage Products</h2>
+            <h2 class="text-blue uncial-text text-center my-3">Manage Products</h2>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <form method="POST" action="{% url 'admin_add_product' %}" class="w-75 mb-5 custom-form bg-dark text-green" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'admin_add_product' %}" class="w-75 mb-5 custom-form bg-dark text-blue" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-right">

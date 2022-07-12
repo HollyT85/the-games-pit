@@ -7,14 +7,14 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2 class="text-green uncial-text text-center my-3">Checkout - Order Summary</h2>
+            <h2 class="text-blue uncial-text text-center my-3">Checkout - Order Summary</h2>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <div class="table-responsive">
                 <table class="table table-sm table-striped table-dark">
-                    <thead class="text-green">
+                    <thead class="text-blue">
                         <tr>
                             <th scope="col"></th>
                             <th scope="col">Product Name</th>
@@ -31,36 +31,36 @@
                         </td>
                         <!-- Name - col 2-->
                         <td class="py-3">
-                            <p class="my-0 text-green">{{ item.product.name }}</p>
+                            <p class="my-0 text-blue">{{ item.product.name }}</p>
                         </td>
                         <!--Price - col 3-->
                         {% if item.product.on_offer %}
                         <td class="py-3">
-                            <p class="my-0 text-green">£{{ item.product.offer_price }}</p>
+                            <p class="my-0 text-blue">£{{ item.product.offer_price }}</p>
                         </td>
                         {% else %}
                         <td class="py-3">
-                            <p class="my-0 text-green">£{{ item.product.price }}</p>
+                            <p class="my-0 text-blue">£{{ item.product.price }}</p>
                         </td>
                         {% endif %}
                         <!--Quantity - col 4-->
                         <td class="py-3 w-25">
-                            <p class="my-0 text-green">{{ item.quantity }}</p>
+                            <p class="my-0 text-blue">{{ item.quantity }}</p>
                         </td>
                         <!--Item total - col 5-->
                         {% if item.product.on_offer %}
                         <td class="py-3">
-                            <p class="my-0 text-green">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
+                            <p class="my-0 text-blue">£{{ item.product.offer_price | offer_total:item.quantity }}</p>
                         </td>
                         {% else %}
                         <td class="py-3">
-                            <p class="my-0 text-green">£{{ item.product.price | offer_total:item.quantity }}</p>
+                            <p class="my-0 text-blue">£{{ item.product.price | offer_total:item.quantity }}</p>
                         </td>
                         {% endif %}
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="pt-5 text-right text-green">
+                        <td colspan="5" class="pt-5 text-right text-blue">
                             <h6><b>Bag Total:</b> £{{ total|floatformat:2 }}</h6>
                             <h6><b>Delivery:</b> £{{ delivery|floatformat:2 }}</h6>
                             <h5 class="mt-4"><b>Grand Total:</b> £{{ grand_total|floatformat:2 }}</h5>
@@ -72,17 +72,17 @@
     </div>
     <div class="row">
         <div class="col-10 m-auto text-center">
-            <p class="text-green">Please fill out the form to complete the checkout process.</p>
+            <p class="text-blue">Please fill out the form to complete the checkout process.</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment">
                 {% csrf_token %}
                 <fieldset class="px-2 mx-2">
-                    <legend class="text-green uncial-text my-3">Contact Details</legend>
+                    <legend class="text-blue uncial-text my-3">Contact Details</legend>
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                     {{ order_form.phone | as_crispy_field}}
                 </fieldset>
                 <fieldset class="px-2 my-2">
-                    <legend class="text-green uncial-text my-3">Delivery Details</legend>
+                    <legend class="text-blue uncial-text my-3">Delivery Details</legend>
                     {{ order_form.address_line1 | as_crispy_field }}
                     {{ order_form.address_line2 | as_crispy_field }}
                     {{ order_form.town_city | as_crispy_field }}
@@ -91,7 +91,7 @@
                     {{ order_form.country | as_crispy_field }}
                 </fieldset>
                 {% if user.is_authenticated %}
-					<label class="form-check-label text-green " for="save-info">Save order to profile</label>
+					<label class="form-check-label text-blue " for="save-info">Save order to profile</label>
                         <input class="form-check-input mx-4" type="checkbox" id="save-info" name="save-info" checked>
 				{% else %}
 					<label class="form-check-label" for="save-info">
@@ -100,7 +100,7 @@
                     </label>
 				{% endif %}
                 <fieldset class="px-3">
-                    <legend class=" text-green uncial-text my-3">Payment</legend>
+                    <legend class=" text-blue uncial-text my-3">Payment</legend>
                     <!--stripe payment-->
                     <div class="my-3" id="card-element">
                         
@@ -115,7 +115,7 @@
                     <button id="submit-button" class="btn btn-dark">Complete Order</button>
                 </div>
                 
-                <p class="text-green my-3">
+                <p class="text-blue my-3">
                     Your card will be charged <b>£{{ grand_total|floatformat:2 }}</b>
                 </p>
             </form>

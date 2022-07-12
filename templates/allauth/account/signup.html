@@ -5,11 +5,11 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h2 class="text-green uncial-text text-center my-3">{% trans "Sign Up" %}</h2>
+<h2 class="text-blue uncial-text text-center my-3">{% trans "Sign Up" %}</h2>
 
-<p class="text-green uncial-text text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<p class="text-blue uncial-text text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup text-center text-green bg-dark w-25 login-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<form class="signup text-center text-blue bg-dark w-25 login-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form | crispy }}
   {% if redirect_field_value %}

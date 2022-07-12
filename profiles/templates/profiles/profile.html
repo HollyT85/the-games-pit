@@ -6,12 +6,12 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2 class="text-green uncial-text text-center my-3">Profile</h2>
+            <h2 class="text-blue uncial-text text-center my-3">Profile</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <h5 class="text-green uncial-text text-center">Delivery Information:</h5>
+            <h5 class="text-blue uncial-text text-center">Delivery Information:</h5>
             <form class="custom-form w-50 bg-dark mb-5" action="{% url 'profile' %}" method="POST" id="update-profile">
                 {% csrf_token %}
                 {{ form | crispy }}
@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h5 class="text-green uncial-text text-center">Previous Orders:</h5>
+            <h5 class="text-blue uncial-text text-center">Previous Orders:</h5>
             <div class="table w-75 mt-5 mx-auto mb-5 table-striped table-dark previous-orders">
                 <table>
                     <thead>
