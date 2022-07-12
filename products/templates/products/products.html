@@ -6,7 +6,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h3 class="uncial-text my-5 text-blue">{{ category}}</h3>
+            {% for c in category %}
+            <h3 class="uncial-text my-5 text-blue">{{ c }}</h3>
+            {% endfor %}
             <div class=" mt-1 mb-2 text-right">
                 <div class="float-right mt-0">
                     <div class="sort-select-wrapper w-20">
@@ -33,12 +35,13 @@
 
 <div class="row">
     {% for product in products %}
+    
     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
         <div class="card card-bg-blue">
             <div class="my-auto img-container my-auto">
                 {% if product.in_stock %}
                 <a href="{% url 'product_info' product.id %}">
-                    <img class="card-img-top card-img " src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="{% url 'product_info' product.id %}">
@@ -83,12 +86,18 @@
             </div>
         </div>
     </div>
+    {% empty %}
+    <div class="container">
+        <p class="text-blue text-center">There are currently no products. Check back soon</p>
+    </div>
+    
     {% endfor %}
+    
 </div>
 
 <div class="row">
     <div class="back-to-top mx-6">
-        <a class="btt-link btn btn-dark text-center text-white">
+        <a class="btn btn-dark text-center">
             Back To Top
         </a>
     </div>

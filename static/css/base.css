@@ -157,6 +157,13 @@ header {
     border-bottom: #172b35 1px solid;
 }
 
+.back-to-top{
+    margin-left: 20px;
+    padding: 10px;
+    color: white;
+}
+
+
 .card-img {
     max-height: 230px;
     max-width: 225px;
