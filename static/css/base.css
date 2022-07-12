@@ -61,9 +61,10 @@ header {
     margin: 0 0 1px 0;
 }
 
-.zombie{
-    height: 150px;
-    float: left;
+.zombie {
+    height: 90px;
+    left: 25%;
+    opacity: 0.9;
 }
 
 .event-box{

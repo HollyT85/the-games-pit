@@ -6,9 +6,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h3 class="uncial-text my-5 text-green">Products</h3>
+            <h3 class="uncial-text my-5 text-green">{{ category}}</h3>
             <div class=" mt-1 mb-2 text-right">
-                <div class="my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                <div class="float-right mt-0">
                     <div class="sort-select-wrapper w-20">
                         <select id="sort-selector"
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -41,7 +41,9 @@
                     <img class="card-img-top card-img " src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
-                <img class="card-img-top card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                <a href="{% url 'product_info' product.id %}">
+                    <img class="card-img-top card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
                 <span class="badge badge-danger">Out of Stock</span>
                 {% endif %}
             </div>

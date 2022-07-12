@@ -23,8 +23,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-    <!--Stripe-->
-    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_css %}
@@ -57,13 +55,12 @@
     <!--Top nav - search, link to home and shopping bag-->
     {% include 'includes/top-nav.html' %}
     <header class="row py-5">
-        <div class="col-2">
-            <img src="{% static 'media/zombie.jpg' %}" class="zombie mx-5">
+        <div class="col-1 float-left mx-5 my-0">
+            <img src="{% static 'media/zombie.jpg' %}" class="zombie">
         </div>
-        <div class="col-8 my-auto mx-0">
-            <h1 class="uncial-text text-green display-4">The Games Pit</h1>
-        </div>
-
+        <div class="col-8">
+            <h1 class="uncial-text float-left text-green display-9 mt-3 heading">The Games Pit</h1>
+        </div>    
     </header>
     <!-- Bottom nav - different shopping areas -->
     {% include 'includes/bottom-nav.html' %}
