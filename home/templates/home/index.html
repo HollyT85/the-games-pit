@@ -7,14 +7,14 @@
     <div class="row home-container">
         <div class="col">
             <img src="{% static 'media/1warhammer.jpg' %}"><br>
-            <a href="" class="uncial-text btn btn-dark">Games Workshop</a>
+            <a href="{% url 'products' %}?category=GamesWorkshop" class="uncial-text btn btn-dark">Games Workshop</a>
         </div>
     </div>
     <!--TCG-->
     <div class="row home-container">
         <div class="col">
             <img src="{% static 'media/1pokemon.png' %}"><br>
-            <a href="" class="uncial-text btn btn-dark">
+            <a href="{% url 'products' %}?category=TCG" class="uncial-text btn btn-dark">
                 TCG
             </a>
         </div>
@@ -23,7 +23,7 @@
     <div class="row home-container">
         <div class="col">
             <img src="{% static 'media/1rpg.png' %}"><br>
-            <a href="" class="uncial-text btn btn-dark">
+            <a href="{% url 'products' %}?category=RPG" class="uncial-text btn btn-dark">
                 RPG
             </a>
         </div>
@@ -32,7 +32,7 @@
     <div class="row home-container">
         <div class="col">
             <img src="{% static 'media/1paints.png' %}"><br>
-            <a href="" class="uncial-text btn btn-dark">
+            <a href="{% url 'products' %}?category=Paint" class="uncial-text btn btn-dark">
                 Paints
             </a>
         </div>
@@ -41,7 +41,7 @@
     <div class="row home-container">
         <div class="col">
             <img src="{% static 'media/1boardgame.jpg' %}"><br>
-            <a href="" class="uncial-text btn btn-dark">
+            <a href="{% url 'products' %}?category=Games" class="uncial-text btn btn-dark">
                 Games
             </a>
         </div>
@@ -50,7 +50,7 @@
     <div class="row home-container mb-3">
         <div class="col">
             <img src="{% static 'media/1accessories.jpg' %}"><br>
-            <a href="" class="uncial-text btn btn-dark ">
+            <a href="{% url 'products' %}?category=Accessories" class="uncial-text btn btn-dark ">
                 Accessories
             </a>
         </div>
