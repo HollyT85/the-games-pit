@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="text-blue uncial-text text-center mt-2">Special Events</h3>
+{% for event in events %}
+<div class="container w-50 text-center event-container">
+    {% if event.image %}
+    <img src="{{ event.image.url }}" class="event-img float-left">
+    <img src="{{ event.image.url }}" class="event-img float-right">
+
+    {% endif %}
+    <h5><b>{{ event.name }}</b></h5> 
+    
+    <p><b>What is it?</b><br>{{ event.description | safe}}</p> 
+    <p><b>Date:</b> {{ event.date }}</p>
+    <p><b>Time:</b> {{ event.time }}</p>  
+</div>
+{% empty %}
+<div class="container">
+    <p class="text-blue text-center">No upcoming events.<br>Check back soon</p>
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -11,5 +11,14 @@ def all_events(request):
 
 
 def special_events(request):
-    
-    return render(request, 'events/special_events.html')
+    """
+    special event details
+    """
+    events = Events.objects.all()
+
+    context = {
+        'events': events,
+    }
+
+    return render(request, 'events/special-events.html', context)
+
