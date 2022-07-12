@@ -14,7 +14,7 @@ from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 
 
-class StripeWHHandler:
+class StripeWH_Handler:
     """
     stripe webhooks
     """
@@ -47,7 +47,7 @@ class StripeWHHandler:
         Handle an unknown / unusual webhook event
         """
         return HttpResponse(
-            content=f'Unhandled webhook received: {event["type"]}',
+            content=f'Webhook received: {event["type"]}',
             status=200)
 
     def handle_successful_payment_intent(self, event):
