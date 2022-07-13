@@ -25,9 +25,9 @@ def cache_checkout_info(request):
     cache checkout information for future
     """
     try:
-        piid = request.POST.get('client_secret').split('_secret')[0]
+        pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        stripe.PaymentIntent.modify(piid, metadata={
+        stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
@@ -65,8 +65,8 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            piid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe_piid = piid
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
             for item_id, item_data in bag.items():

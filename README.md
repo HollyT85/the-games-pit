@@ -353,11 +353,11 @@ No automated testing has taken place in this project; it has all been manual and
 **Resolved by**: re-wrote the code.
 
 ------------
-**Problem**: one user, when trialling the site, got a 404 error when pressing on the basket when it was empty.
+**Problem**: one user, when trialling the site, got a 404 error when pressing on the basket when it was empty. After investigation, it was the home button on the empty bag page which wasn't working.
 
-**Caused by**: unknown. I have tested this and several other people have also tested it and we have not been able to repeat the error.
+**Caused by**: Forgot to closing ".
 
-**Resolved by**: unresolved as can't replicate the error.
+**Resolved by**: Closing the "".
 
 ------------
 ### Unresolved Issues

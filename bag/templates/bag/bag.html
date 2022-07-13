@@ -126,7 +126,7 @@
             <!--Allow users to easily navigate back home if bag is empty-->
             {% else %}
                 <p class="text-center text-blue uncial-text">Your bag is empty.</p>
-                <a href="{ url 'home'}" class="btn btn-dark mb-3">Return Home</a>
+                <a href="{% url 'home' %}" class="btn btn-dark mb-3">Return Home</a>
             {% endif %}
         </div>
     </div>

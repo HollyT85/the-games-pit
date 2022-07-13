@@ -55,7 +55,7 @@ class StripeWH_Handler:
         handle successful payment intent
         """
         intent = event.data.object
-        piid = intent.id
+        pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
 
@@ -100,7 +100,7 @@ class StripeWH_Handler:
                     country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
                     original_bag=bag,
-                    stripe_piid=piid,
+                    stripe_pid=pid,
                 )
                 order_exists = True
                 break
@@ -130,7 +130,7 @@ class StripeWH_Handler:
                     post_code=shipping_details.address.postal_code,
                     country=shipping_details.address.country,
                     original_bag=bag,
-                    stripe_piid=piid,
+                    stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
