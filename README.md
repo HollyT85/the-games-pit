@@ -112,6 +112,122 @@ Users can easily access their profile from any page where they can update and st
 
 ### *Data Storage*
 
+Key:
+
+N = Null
+
+B = Blank
+
+FK = Foreign Key
+
+#### UserProfile
+
+
+| Name                      | Data Type | Form Validation | Max Characters |
+| ------------------------- | --------- | --------------- | -------------- |
+| user                      | onetoone  | N/B = True      |                |
+| default_phone             | charfield | N/B = True      | 12             |
+| default_address_line_1    | charfield | N/B = True      | 80             |
+| default_address_line_2    | charfield | N/B = True      | 80             |
+| default_town_city         | charfield | N/B = True      | 80             |
+| default_county            | charfield | N/B = True      | 80             |
+| default_post_code         | charfield | N/B = True      | 8              |
+| default_country           | charfield | N/B = True      | 80             |
+
+
+#### Events
+
+
+| Name           | Data Type | Form Validation | Max Characters |
+| ---------------| --------- | --------------- | -------------- |
+| user           | charfield | N/B = False     | 254            |
+| description    | textfield | N/B = False     | -              |
+| date           | datefield | N/B = True      | -              |
+| time           | timefield | N/B = True      | -              |
+| image_url      | urlfield  | N/B = True      | -              |
+| image          | imagefield| N/B = True      | -              |
+
+
+#### Products
+
+
+Category
+
+
+| Name           | Data Type | Form Validation | Max Characters |
+| ---------------| --------- | --------------- | -------------- |
+| main_cat       | charfield | N/B = False     | 254            |
+| friendly_name  | textfield | N/B = True      | 254            |
+
+
+SubCat
+
+
+| Name           | Data Type | Form Validation | Max Characters |
+| ---------------| --------- | --------------- | -------------- |
+| main_cat       | FK        | N/B = True      | 254            |
+| sub_cat        | charfield | N/B = False     | 254            |
+
+
+Product
+
+
+| Name           | Data Type | Form Validation     | Max Characters |
+| -------------- | --------- | ------------------- | -------------- |
+| category       | FK        |                     |                |
+| sub_cat        | FK        |                     |                |
+| extra_cat      | charfield | N/B = True          | 254            |
+| name           | charfield | N/B = True          | 254            |
+| description    | textfield |                     |                |
+| in_stock       | Boolean   | default= True       | -              |
+| price          | decimal   | N/B = False         | 6              |
+| on_offer       | Boolean   | default = False     | -              |
+| offer_price    | decimal   | N/B = True          | 6              |
+| image_url      | urlfield  | N/B = False         | 1024           |
+| image          | imagefield| N/B = false         | 8              |
+| created        | datetime  | auto_now_add = True | -              |
+
+
+#### Orders
+
+
+Order
+
+
+| Name                      | Data Type | Form Validation               | Max Characters |
+| ------------------------- | --------- | ----------------------------- | -------------- |
+| order_number              | charfield | N/B = False                   | 32             |
+| user_profile              | FK        | N/B = True                    | -              |
+| full_name                 | charfield | N/B = False                   | 60             |
+| email                     | emailfield| N/B = False                   | 354            |
+| phone                     | charfield | N/B = True                    | 12             |
+| address_line_1            | charfield | N/B = False                   | 254            |
+| address_line_2            | charfield | N/B = True                    | 254            |
+| town_city                 | charfield | N/B = False                   | 80             |
+| county                    | charfield | N/B = False                   | 80             |
+| post_code                 | charfield | N/B = False                   | 8              |
+| country                   | charfield | N/B = False default = GB      | 30             |
+| date                      | datetime  | auto_add_now = True           | -              |
+| sub_total                 | decimal   | N/B - False default = 0       | 6              |
+| delivery_cost             | decimal   | N/B - False default = 0       | 6              |
+| grand_total               | decimal   | N/B - False default = 0       | 6              |
+| original_bag              | textfield | N/B - False                   | -              |
+| stripe_piid               | charfield | N/B - False                   | 254            |
+
+
+OrderLineItem
+
+
+| Name            | Data Type | Form Validation              | Max Characters |
+| --------------- | --------- | ---------------------------- | -------------- |
+| order           | FK        |                              |                |
+| product         | FK        |                              |                |
+| quantity        | integer   | default = 0                  | -              |
+| line_item_total | decimal   | N/B = False editable = False | -              |
+
+
+
+
 ## **Technology Used**
 ----------------
 ### *Languages*
@@ -139,7 +255,7 @@ Postgres
 ## **Testing**
 ----------------
 
-## **Deploment**
+## **Deployment**
 ----------------
 
 ## **Credits**

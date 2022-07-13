@@ -51,7 +51,6 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     in_stock = models.BooleanField(default=True)
-    rrp = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     on_offer = models.BooleanField(default=False)
     offer_price = models.DecimalField(
