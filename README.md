@@ -29,6 +29,7 @@ The Games Pit is a local gaming shop in Wakefield, West Yorkshire. The shop prov
     * Tools
 
 5. Testing
+    * Bugs
 
 6. Deployment
 
@@ -254,6 +255,62 @@ Postgres
 
 ## **Testing**
 ----------------
+
+No automated testing has taken place in this project; it has all been manual and via User Experience.
+
+**Expected Outcome**: All products in the database will load in both the correct category and correct sub category. Each product will be clickable and will lead to the product information page; if a product is out of stock there will be a badge saying so, if an item is on offer, two prices will be displayed with the original price struck out and the offer price showing. Out of stock items will be clickable however, there will be no purchasing options.
+
+**Testing Carried out**: After adding products to the database, ensuring some were out of stock and some were on offer, I loaded up the webpage and navigated to various areas to check the items were visible where they should be. I checked that out of stock items weren't purchasable adn that badges and offer prices all showed.
+
+**Result**: PASS: All items display correctly, out of stock items were not purchasable and had a badge stating they were out of stock and items on offer showed the correct pricing.
+
+------------
+
+**Expected Outcome** : customers can make a purchase whether they are logged in or not.
+
+**Testing Carried out**: I ran through the checkout process both as a registered user and as a non-registered user to ensure my purchases completed.
+
+**Result**: PASS: I could make a purchase as both a registered user and when not signed in.
+
+------------
+**Expected Outcome** : registered, logged-in users should be able to see previous orders and store a delivery address on their profile page.
+
+**Testing Carried out**: Whilst I was logged in, I saved an address on my profile. After doing so, I made a couple of purchases. 
+
+**Result**: PASS: When making purchases, my address was automatically filled in. After making each purchase, I returned to my profile page and could see each of my previous orders.
+
+------------
+**Expected Outcome** : all links will work and display the correct items
+
+**Testing Carried out**: I manually clicked through each link; I had not added the links to the different paints so they did not work. 
+
+**Result**: PASS: After adding the links to the paints, all links worked and displayed the correct items.
+
+------------
+**Expected Outcome** : if there are no products in a category / sub-category, a message will be displayed which says so.
+
+**Testing Carried out**:  I navigated to the paints page as I knew there were no items in there.
+
+**Result**: PASS: Message was correctly displayed on the pages it needed to be.
+
+------------
+**Expected Outcome** : Website will display well across a variety of device sizes.
+
+**Testing Carried out**: I tested the website on small, medium and large screens.
+
+**Result**: FAIL: The website worked well on medium and large devices however, on mobile, there were some errors that were visible; the top navbar didn't display as well as I would like and therefore some code tweaks are required.
+
+------------
+**Expected Outcome** : when logged in as a superuser, I can add, edit and delete items and, if I'm not a superuser, I can't.
+
+**Testing Carried out**: I logged in as both a non superuser a superuser and visited various pages and items.
+
+**Result**: PASS: All items were editable and deletable by the superuser account and were not by a normal account.
+
+------------
+
+### Bugs
+
 
 ## **Deployment**
 ----------------
