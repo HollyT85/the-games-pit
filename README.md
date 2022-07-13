@@ -311,9 +311,136 @@ No automated testing has taken place in this project; it has all been manual and
 
 ### Bugs
 
+**Problem**: live site wouldn't load
+
+**Caused by**: having the incorrect secret keys in Heroku
+
+**Resolved by**: putting the correct secret keys
+
+------------
+**Problem**: Stripe webhook payment_intent.succeeded not working; gives ERR 500
+
+**Caused by**: ??
+
+**Resolved by**: ??
+
+------------
+**Problem**: database wouldn't load on deployed site as it was blank.
+
+**Caused by**: for some reason, the database had migrated (all checked when showmigrations was run) and it said loaddata had worked but it hadn't.
+
+**Resolved by**: deleted all associated migrations and files and started again.
+
+------------
+**Problem**: when I tried to loaddata, it said there was conflicting information in the database so data couldn't be loaded.
+
+**Caused by**: two users had the same email address.
+
+**Resolved by**: deleted one of the users.
+
+------------
+**Problem**: images on the live site, when running through AWS, wouldn't load
+
+**Caused by**: Unknown; the images all uploaded to AWS but they wouldn't load on the site.
+
+**Resolved by**: editing the products and re-uploading the images.
+
+------------
+**Problem**: when an item was deleted from the bag, the toast disrupted the whole layout of the website. The page jumped and compressed into 8 columns instead of the whole screen and the success toast took the last 4 columns.
+
+**Caused by**: the toast over-riding the page layout.
+
+**Resolved by**: re-wrote the code.
+
+------------
+**Problem**: one user, when trialling the site, got a 404 error when pressing on the basket when it was empty.
+
+**Caused by**: unknown. I have tested this and several other people have also tested it and we have not been able to repeat the error.
+
+**Resolved by**: unresolved as can't replicate the error.
+
+------------
+### Unresolved Issues
+
+* The potential bug on an empty bag but as it cannot be replicated, I'm unsure if it is a bug or if something else happened to the user.
 
 ## **Deployment**
 ----------------
+The site has been deployed and can be found [here](https://the-games-pit.herokuapp.com/).
+
+### *How to Deploy via Git*
+
+
+Run the following commands in the terminal:
+
+    - git clone https://github.com/HollyT85/the-games-pit
+
+    - cd the-games-pit
+
+    - pip install -r requirements.txt
+
+Once the above has successfully been achieved:
+
+    - create an env.py in the root directory and set up your environment variables
+
+    import os
+
+    os.environ["SECRET_KEY"] = "[Your Secret Key]"
+    os.environ["STRIPE_PUBLIC_KEY"] = "[Your Stripe Key]"
+    os.environ["STRIPE_SECRET_KEY"] = "[Your Stripe Secret Key]"
+    os.environ["DATABASE_URL"] = "[Your DB URL]
+
+### Setting up your database
+
+
+1. Run the command:
+
+    * python3 manage.py migrate
+
+2. Back up current database with the following command:
+
+    * ./manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json
+
+3. Load the data:
+
+    * ./manage.py loaddata db.json
+
+4. Create a superuser:
+
+    * python3 manage.py createsuperuser
+
+
+### Deploying to Heroku
+
+1. Create or login to your account on [Heroku](https://heroku.com/).
+
+2. Create a new app; to save confusion, it may be best to call the app the same as the repository
+
+3. In the resources tab, choose the addon Heroku Postgres (free).
+
+4. In the settings, click 'Reveal Config Vars'. Copy the DATABASE_URL into settings.py on your repository.
+
+5. Add the following config vars (your final config vars should look like this):
+
+| Key                   | Value              |
+|---------------------- | ------------------ | 
+| AWS_ACCESS_KEY_ID     | your value         |
+| AWS_SECRET_ACCESS_KEY | your value         |
+| DATABASE_URL          | provided by Heroku |
+| SECRET_KEY            | your value         |
+| STRIPE_PUBLIC_KEY     | your value         |
+| STRIPE_SECRET_KEY     | your value         |
+| STRIPE_WH_SECRET      | your value         |
+| USE_AWS               | True               |
+
+6. Follow the set-up data base instructions above to populate the database to the cloud storage
+
+7. Return to Heroku and, on the dashboard, click deploy.
+
+8. Connect Heroku to your Github repository and select automatic deployment from the main/master branch.
+
+9. Once your app has been deployed, select open app at the top right.
+
 
 ## **Credits**
 ----------------
