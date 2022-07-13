@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    background-color: black;
 }
 
 /* general styling  */
@@ -11,15 +12,38 @@ html {
     overflow-x: hidden;
 }
 
+.bg-blue {
+    background-color: #00a7e9;
+}
+
+.heading {
+    size:300px;
+}
+
+.uncial-text {
+    font-family: 'Uncial Antiqua', sans-serif;
+}
+
+.text-blue {
+    color: #049bea;
+}
+
+.bluetext {
+    color:#0f4b63;
+}
+
+.center {
+    margin: auto;
+}
+
+
+/*forms and card styling*/
+
 .custom-form {
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
     padding: 10px;
-}
-
-.previous_orders {
-    max-height: 500px;
 }
 
 .login-form {
@@ -30,17 +54,57 @@ html {
     border-radius: 10px;
 }
 
+.card-bg-blue {
+    background-color: #93bed5 !important;
+}
+
+.event-box{
+    background-color: #93bed5;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.card-name {
+    height: 100px;
+}
+
+.card-price {
+    height: 75px ;
+}
+
+/* product cards */
+
+.card {
+    margin-bottom: 10px;
+    text-align: center;
+    height: 425px;
+    width: 250px;
+    margin: 10px auto;
+}
+
+.img-container {
+    height: 250px;
+    border-bottom: #172b35 1px solid;
+}
+
+/* specific buttons*/
+
+.previous_orders {
+    max-height: 500px;
+}
+
+
 .logout-button {
     margin-left: auto;
     margin-right: auto;
 }
 
-.card-bg-blue {
-    background-color: #93bed5 !important;
-}
-
-.bg-blue {
-    background-color: #00a7e9;
+.back-to-top{
+    margin-left: 20px;
+    padding: 10px;
+    color: white;
 }
 
 /* Base Template Styling */
@@ -67,41 +131,10 @@ header {
     opacity: 0.9;
 }
 
-.event-box{
-    background-color: #93bed5;
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 10px;
-    border: 2px solid white;
-}
-
-.heading {
-    size:300px;
-}
-
-.uncial-text {
-    font-family: 'Uncial Antiqua', sans-serif;
-}
-
-.text-blue {
-    color: #049bea;
-}
-
-.bluetext {
-    color:#0f4b63;
-}
-
-.center {
-    margin: auto;
-}
-
-
-
 .footer {
     background-color: black;
     margin-top: 1px;
 }
-
 
 /* index.html */
 
@@ -134,37 +167,7 @@ header {
     border: 2px #00a7e9 solid;
 }
 
-
-
-.home-images {
-    
-
-}
-
-
-
-
-/* product cards */
-
-.card {
-    margin-bottom: 10px;
-    text-align: center;
-    height: 425px;
-    width: 250px;
-    margin: 10px auto;
-}
-
-.img-container {
-    height: 250px;
-    border-bottom: #172b35 1px solid;
-}
-
-.back-to-top{
-    margin-left: 20px;
-    padding: 10px;
-    color: white;
-}
-
+/*image styling*/
 .event-img {
     max-height: 100px;
     max-width: 100px;
@@ -185,13 +188,6 @@ header {
     margin-top: 10px;
 }
 
-.card-name {
-    height: 100px;
-}
-
-.card-price {
-    height: 75px ;
-}
 
 /* toasts */
 
