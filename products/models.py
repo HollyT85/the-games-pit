@@ -34,9 +34,16 @@ class SubCat(models.Model):
     main_cat = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sub_cat = models.CharField(max_length=255)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
         return self.sub_cat
+
+    def get_friendly_name(self):
+        """
+        friendly name instead of id
+        """
+        return self.friendly_name
 
 
 class Product(models.Model):

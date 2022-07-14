@@ -375,11 +375,32 @@ Postgres
 [Bootstrap](https://getbootstrap.com/)
 [GIMPSoftware](https://www.gimp.org/)
 [GoogleFonts](https://fonts.google.com/)
+[W3CCSSValidator](https://jigsaw.w3.org/css-validator/)
 
 ## **Testing**
 ----------------
 
 No automated testing has taken place in this project; it has all been manual and via User Experience.
+
+*Tool Tests*
+
+CSS
+
+My CSS passed through the validator
+
+![CSS](static/media/css.png)
+
+JS
+
+MY JS passed through the JSHint validator. I had missed a few semi-colons so I added those.
+
+![JS](static/media/jshint.png)
+
+Speed Test
+
+HTML
+
+--------------
 
 **Expected Outcome**: All products in the database will load in both the correct category and correct sub category. Each product will be clickable and will lead to the product information page; if a product is out of stock there will be a badge saying so, if an item is on offer, two prices will be displayed with the original price struck out and the offer price showing. Out of stock items will be clickable however, there will be no purchasing options.
 
