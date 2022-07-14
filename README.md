@@ -225,6 +225,7 @@ Then, in the view under if request.method =='POST' add:
 
 At the top, import django.core.mail import send_mail
 
+The site would benefit from a quick add to cart button.
 
 ## **Database Details**
 ----------------
@@ -506,7 +507,7 @@ HTML
 ------------
 ### Unresolved Issues
 
-
+There is no title on the search results or on the sale page.
 
 ## **Deployment**
 ----------------

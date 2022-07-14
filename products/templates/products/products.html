@@ -7,9 +7,14 @@
     <div class="row">
         <div class="col-12 text-center">
             <!--category is page name-->
-            {% for c in category %}
+            {% if category %}
+                {% for c in category %}
                 <h3 class="uncial-text my-5 text-blue">{{ c.friendly_name }}</h3>
-            {% endfor %}
+                {% endfor %}
+            <!--If there isn't a category(e.g sale/search), use products-->
+            {% else %}
+                <h3 class="uncial-text my-5 text-blue">Products</h3>
+            {% endif %}
             <!--sorting items-->
             <div class=" mt-1 mb-2 text-right">
                 <div class="float-right mt-0">
