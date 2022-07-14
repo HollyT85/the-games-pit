@@ -28,7 +28,7 @@
                     <tr>
                         <!-- Image - col 1-->
                         <td class="p-3 w-25">
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                            <img class="img-fluid" src="{{ item.product.image.url }}">
                         </td>
                         <!-- Name - col 2-->
                         <td class="py-3">
@@ -50,7 +50,7 @@
                                 {% csrf_token %}
                                 <div class="form-row">
                                     <div class="col-12">
-                                        <div class="form-group w-75">
+                                        <div class="form-group w-50">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <button class="decrease-qty btn btn-dark"
@@ -74,7 +74,7 @@
                                                     </button>
                                                 </div>
                                                 <div>
-                                                    <span class="remove-item btn btn-dark mx-2"
+                                                    <span class="remove-item btn btn-dark mx-0 mt-2"
                                                         id="remove_{{ item.item_id }}" data-size="{{ item.size }}">
                                                         <i class="fas fa-trash green-text"></i>
                                                     </span>
@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <a class="update-item btn btn-dark">Update</a>
+                            <a class="update-item btn btn-dark mt-0">Update</a>
                         </td>
                         <!--Item total - col 5-->
                         {% if item.product.on_offer %}

@@ -39,14 +39,8 @@
             </a>
         </div>
     </div>
-    <!--Product Description-->
-    <div class="col-md-6 col-xs-12 mt-2 card-bg-blue border-left border-dark">
-        <div class="py-5 mr-5">
-            <p class="">{{ product.description | safe }}</p>
-        </div>
-    </div>
     <!--Add to Shopping Bag-->
-    <div class="col-md-3 col-xs-12 mt-2 bg-blue border-left border-dark">
+    <div class="col-md-3 col-xs-12 mt-2 card-bg-blue border-left border-dark">
         <form class="form mb-2" action="{% url 'add_to_bag' product.id %}" method="POST">
             {% csrf_token %}
             <div class="form-row">
@@ -77,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <input type="submit" class="btn btn-dark rounded-0" value="Add to Bag">
+                    <input type="submit" class="btn btn-dark" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 <!--Don't allow to add to bag if item isn't in stock-->
@@ -101,6 +95,12 @@
                 {% endif %}
             </div>
         </form>
+    </div>
+    <!--Product Description-->
+    <div class="col-md-6 col-xs-12 mt-2 bg-blue border-left border-dark">
+        <div class="py-5 mr-5">
+            <p class="">{{ product.description | safe }}</p>
+        </div>
     </div>
 </div>
 {% endblock %}
