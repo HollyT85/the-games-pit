@@ -93,6 +93,7 @@ html {
 
 .previous_orders {
     max-height: 500px;
+    width: 80%;
 }
 
 
@@ -226,7 +227,11 @@ input[type=number] {
 
 /*Media Queries for different devices*/
 
-
+@media(max-width:10px) {
+    .opening-hours {
+        display: none;
+    }
+}
 
 /*Stripe*/
 .StripeElement,

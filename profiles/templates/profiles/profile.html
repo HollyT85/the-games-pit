@@ -13,7 +13,7 @@
         <div class="col-12">
             <h5 class="text-blue uncial-text text-center">Delivery Information:</h5>
             <!--Allow users to save delivery address on profile-->
-            <form class="custom-form w-50 bg-dark mb-5" action="{% url 'profile' %}" method="POST" id="update-profile">
+            <form class="custom-form w-75 bg-dark mb-5" action="{% url 'profile' %}" method="POST" id="update-profile">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button class="btn btn-secondary">Update</button>
@@ -24,8 +24,8 @@
         <div class="col-12">
             <!--see previous orders-->
             <h5 class="text-blue uncial-text text-center">Previous Orders:</h5>
-            <div class="table w-75 mt-5 mx-auto mb-5 table-striped table-dark previous-orders">
-                <table>
+            <div class="table w-75 mt-5 mx-auto mb-5 table-striped table-dark table-responsive previous-orders">
+                <table class="table text-white">
                     <thead>
                         <tr>
                             <th>Order No</th>
@@ -38,8 +38,9 @@
                         {% for order in orders %}
                         <tr>
                             <td>
-                                {{ order.order_number }}
-                            </td>
+                                <a title="{{ order.order_number }}">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
                             <td>
                                 {{ order.date }}
                             </td>

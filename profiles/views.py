@@ -34,21 +34,3 @@ def profile(request):
 
     return render(request, template, context)
 
-
-def order_history(request, order_number):
-    """
-    view order history
-    """
-    order = get_object_or_404(Order, order_number=order_number)
-
-    messages.info(request, (
-        'This is a previous order.'
-    ))
-
-    template = 'checkout/checkout_success.html'
-    context = {
-        'order': order,
-        'from_profile': True,
-    }
-
-    return render(request, template, context)
