@@ -17,7 +17,11 @@ html {
 }
 
 .heading {
-    size:300px;
+    max-height:300px;
+}
+
+.h1 a:hover, a:link, a:visited, a:active {
+    text-decoration: none !important;
 }
 
 .uncial-text {
@@ -227,11 +231,7 @@ input[type=number] {
 
 /*Media Queries for different devices*/
 
-@media(max-width:10px) {
-    .opening-hours {
-        display: none;
-    }
-}
+
 
 /*Stripe*/
 .StripeElement,

@@ -8,6 +8,7 @@
             <button class="navbar-toggler text-blue" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!--Games Workshop-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +24,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Books">Books</a>
                 </div>
             </li>
-
+            <!--TCG-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +42,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Yu-Gi-Oh!">Yu-Gi-Oh!</a>
                 </div>
             </li>
-            
+            <!--RPG-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,7 +64,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Warlock Tiles - Miniatures">Warlock Tiles - Miniatures</a>
                 </div>
             </li>
-
+            <!--Paints-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,7 +88,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Air">Air</a>
                 </div>
             </li>
-
+            <!--Games-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,7 +104,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Puzzle">Puzzle Games</a>
                 </div>
             </li>
-            
+            <!--Accessories-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -121,7 +122,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Play Mats">Play Mats</a>
                 </div>
             </li>
-
+            <!--Events-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -133,13 +134,17 @@
                 <a class="dropdown-item" href="{% url 'special_events' %}">Special Events</a>
                 <div class="dropdown-divider"></div>
             </li>
+            <!--Sale-->
             <li class="nav-item">
-
                 <a class="nav-link text-blue uncial-text" href="{% url 'sale' %}">Sale</a>
             </li>
+            <!--Contact-->
+            <li class="nav-item">
+                <a class="nav-link text-blue uncial-text" href="{% url 'sale' %}">Contact Us</a>
+            </li>
         </ul>
-        <div class="col-4">
-            <!--Search-->
+        <!--Search-->
+        <div class="col-md-3 col-xs-12">
             <form method="GET" action="{% url 'products' %}">
                 <div class="input-group">
                     <input class="form-control border" type="text" name="search" placeholder="Search">
