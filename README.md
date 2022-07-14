@@ -143,6 +143,35 @@ The colours passed the accessibility checker:
 
 ### *Wireframes*
 
+*Extra Small and Small Screens*
+
+For small and extra small screens, I wanted the pages to be stacked down rather than across so there is plenty of space for the description in items.
+
+![mobile](static/media/mobilewireframes.png)
+
+*Medium and Above*
+
+For medium and larger screens, the product information page is planned to go across to suit the wider screen sizes.
+
+Home Page (same as on mobile)
+
+![mediumandover](static/media/webhome.png)
+
+Products Page
+
+![mediumandover1](static/media/webproducts.png)
+
+Individal Products
+
+![mediumandover2](static/media/webindividual.png)
+
+Forms
+
+All forms will have the same layouy
+
+![forms](static/media/checkoutforms.png)
+
+
 ## **Features**
 ----------------
 
