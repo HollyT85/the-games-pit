@@ -32,7 +32,7 @@
 </div>
 <!--Image-->
 <div class="row py-5 px-5">
-    <div class="col-3 bg-blue">
+    <div class="col-lg-3 col-xs-12 mt-2 bg-blue">
         <div>
             <a href="{{ product.image.url }}" target="_blank">
                 <img class="card-img-top align-center my-5" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -40,14 +40,14 @@
         </div>
     </div>
     <!--Product Description-->
-    <div class="col-6 card-bg-blue border-left border-dark">
+    <div class="col-md-6 col-xs-12 mt-2 card-bg-blue border-left border-dark">
         <div class="py-5 mr-5">
             <p class="">{{ product.description | safe }}</p>
         </div>
     </div>
     <!--Add to Shopping Bag-->
-    <div class="col-3 bg-blue border-left border-dark">
-        <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+    <div class="col-md-3 col-xs-12 mt-2 bg-blue border-left border-dark">
+        <form class="form mb-2" action="{% url 'add_to_bag' product.id %}" method="POST">
             {% csrf_token %}
             <div class="form-row">
                 {% if product.in_stock %}
