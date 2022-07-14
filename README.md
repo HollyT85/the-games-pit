@@ -505,9 +505,7 @@ HTML
 **Resolved by**: Closing the "".
 
 ------------
-### Unresolved Issues
 
-There is no title on the search results or on the sale page.
 
 ## **Deployment**
 ----------------
