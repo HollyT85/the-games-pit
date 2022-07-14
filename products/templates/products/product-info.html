@@ -20,9 +20,9 @@
         {% endif %}
         <!--show old price and new offer price if item is on offer-->
         {% if product.on_offer %}
-            <h5 class="uncial-text text-blue">
-                £{{ product.offer_price }}
-            </h5>
+            <h5 class="text-center text-danger my-0 py-0 strike">£{{ product.price }}</h5>
+            <h5 class="text-center text-blue my-0 py-0"><b>£{{ product.offer_price }}</b></h5>
+            
         {% else %}
             <h5 class="text-blue uncial-text">
                 £{{ product.price }}

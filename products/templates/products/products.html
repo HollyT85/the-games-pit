@@ -8,7 +8,7 @@
         <div class="col-12 text-center">
             <!--category is page name-->
             {% for c in category %}
-                <h3 class="uncial-text my-5 text-blue">{{ c }}</h3>
+                <h3 class="uncial-text my-5 text-blue">{{ c.friendly_name }}</h3>
             {% endfor %}
             <!--sorting items-->
             <div class=" mt-1 mb-2 text-right">
@@ -70,7 +70,7 @@
                     <div class="col">
                         <!--show offer price if product on offer-->
                         {% if product.on_offer %}
-                            <p class="text-center text-danger my-0 py-0"><strike>£{{ product.price }}</strike></p>
+                            <p class="text-center text-danger my-0 py-0 strike">£{{ product.price }}</p>
                             <p class="text-center my-0 py-0"><b>£{{ product.offer_price }}</b></p>
                             <span class="badge badge-danger">Sale</span>
                         {% else %}

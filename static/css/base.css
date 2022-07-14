@@ -12,6 +12,10 @@ html {
     overflow-x: hidden;
 }
 
+.strike {
+    text-decoration: line-through
+}
+
 .rounder {
     border-radius: 10px;
 }

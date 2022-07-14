@@ -1,13 +1,15 @@
 <nav class="navbar navbar-expand-lg bottom-nav row">
-    <button class="navbar-toggler text-blue" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler text-blue" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-blue"><i class="fas fa-bars"></i></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="navbar-toggler text-blue" type="button" data-toggle="collapse" data-target="#main-nav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <ul class="navbar-nav mr-auto">
-            <button class="navbar-toggler text-blue" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <!--Games Workshop-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
@@ -19,58 +21,61 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=40K">40K</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Age Of Sigmar">Age of Sigmar</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=AgeOfSigmar">Age of Sigmar</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Books">Books</a>
                 </div>
             </li>
             <!--TCG-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown1" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     TCG
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                     <a class="dropdown-item" href="{% url 'products' %}?category=TCG">All TCG</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Pokémon">Pokemon</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Pokemon">Pokemon</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Magic! The Gathering">Magic! The Gathering</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=MagicTheGathering">Magic! The
+                        Gathering</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Digimon">Digimon</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Yu-Gi-Oh!">Yu-Gi-Oh!</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=YuGiOh">Yu-Gi-Oh!</a>
                 </div>
             </li>
             <!--RPG-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown2" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     RPG
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                     <a class="dropdown-item" href="{% url 'products' %}?category=RPG">All RPG</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Dungeons Dragons">Dungeons & Dragons</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=DungeonsDragons">Dungeons & Dragons</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=DD Miniatures">D&D Miniatures</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=DDMiniatures">D&D Miniatures</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Vampire Masquerade">Vampire Masquerade</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=VampireMasquerade">Vampire
+                        Masquerade</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Path Finder">Path Finder</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=PathFinder">Path Finder</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Star Finder">Star Finder</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=StarFinder">Star Finder</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Warlock Tiles - Miniatures">Warlock Tiles - Miniatures</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=WarlockTilesMiniatures">Warlock Tiles -
+                        Miniatures</a>
                 </div>
             </li>
             <!--Paints-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown3" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Paints
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                     <a class="dropdown-item" href="{% url 'products' %}?category=Paint">All Paint</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Contrast">Contrast</a>
@@ -90,11 +95,11 @@
             </li>
             <!--Games-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown4" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Games
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
                     <a class="dropdown-item" href="{% url 'products' %}?category=Games">All Games</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Card">Card Games</a>
@@ -106,33 +111,34 @@
             </li>
             <!--Accessories-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown5" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Accessories
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown5">
                     <a class="dropdown-item" href="{% url 'products' %}?category=Accessories">All Accessories</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Card Storage">Card Storage</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=CardStorage">Card Storage</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Paint Brushes">Brushes</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=PaintBrushes">Brushes</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Dice Bags">Dice & Bages</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=DiceBags">Dice & Bags</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=Play Mats">Play Mats</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sub_cat=PlayMats">Play Mats</a>
                 </div>
             </li>
             <!--Events-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle text-blue uncial-text" href="#" id="navbarDropdown6" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Events
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'all_events' %}">Weekly Events</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'special_events' %}">Special Events</a>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown6">
+                    <a class="dropdown-item" href="{% url 'all_events' %}">Weekly Events</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'special_events' %}">Special Events</a>
+                    <div class="dropdown-divider"></div>
+                </div>
             </li>
             <!--Sale-->
             <li class="nav-item">
