@@ -5,7 +5,7 @@ from django.contrib import messages
 
 def contact(request):
     """
-    view for contact page;
+    view for contact page (doesn't send)
     """
     if request.method == "POST":
 

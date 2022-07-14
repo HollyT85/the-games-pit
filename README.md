@@ -108,6 +108,39 @@ Users can easily access their profile from any page where they can update and st
 
 ### *Features to be Implemented*
 
+This information has come from [here](https://www.youtube.com/watch?v=1DcySa35fXw).
+
+To get the email feature working, in settings.py, under EMAIL_BACKEND add:
+
+EMAIL_HOST = your email host
+EMAIL_HOST_USER = your email address
+EMAIL_HOST_PASSWORD = your password (in os.environ for security reasons)
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+Then, in the view under if request.method =='POST' add:
+
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    message = request.POST.get('message')
+
+    data = {
+        'name': name, 
+        'email': email,
+        'message': message,
+    }
+
+    message = '''
+    New message: {}
+
+    From: {}
+    '''.format(data['message'], data['email'])
+    send_mail(message, '', [your email address])
+
+At the top, import django.core.mail import send_mail
+
+
 ## **Database Details**
 ----------------
 
@@ -316,13 +349,6 @@ No automated testing has taken place in this project; it has all been manual and
 **Caused by**: having the incorrect secret keys in Heroku
 
 **Resolved by**: putting the correct secret keys
-
-------------
-**Problem**: Stripe webhook payment_intent.succeeded not working; gives ERR 500
-
-**Caused by**: ??
-
-**Resolved by**: ??
 
 ------------
 **Problem**: database wouldn't load on deployed site as it was blank.
