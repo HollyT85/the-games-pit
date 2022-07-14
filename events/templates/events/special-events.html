@@ -2,7 +2,7 @@
 {% block content %}
 <h2 class="text-blue uncial-text text-center my-3">Special Events</h2>
 {% for event in events %}
-<div class="container w-50 text-center event-container">
+<div class="container w-100 text-center event-container">
     {% if event.image %}
         <img src="{{ event.image.url }}" class="event-img float-left">
         <img src="{{ event.image.url }}" class="event-img float-right">

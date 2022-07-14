@@ -4,15 +4,14 @@
         <a class="navbar-brand uncial-text text-blue" href="{% url 'home' %}">The Games Pit</a>
     </div>
 
-    <div class="col-md-6 col-sm-4">
+    <div class="col-md-6 col-sm-8">
         <!--Bag & user profie-->
-        <ul class="list-inline list-unstyled text-right text-lg-right my-0">
-            <li class="list-inline-item dropdown">
+            <li class="list-inline-item dropdown list-unstyled float-left mx-0 my-0">
                 <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <div class="text-center">
-                        <div><i class="fas fa-user fa-lg text-blue"></i></div>
-                        <p class="my-0 text-blue uncial-text">My Account</p>
+                        <div><i class="fas fa-user fa-sm text-blue"></i></div>
+                        <p class="my-0 text-blue uncial-text">Account</p>
                     </div>
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -27,12 +26,12 @@
                     <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                     {% endif %}
                 </div>
-            </li>
-            <li class="list-inline-item">
+            </li>        
+            <li class="list-inline-item float-right">
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                     href="{% url 'view_bag' %}">
                     <div class="text-center">
-                        <div><i class="fas fa-shopping-bag fa-lg text-blue"></i></div>
+                        <div><i class="fas fa-shopping-bag fa-sm text-blue"></i></div>
                         <p class="my-0 text-blue uncial-text">
                             {% if grand_total %}
                             £{{ grand_total|floatformat:2 }}

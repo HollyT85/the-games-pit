@@ -89,9 +89,9 @@
                 <label class="form-check-label text-blue " for="save-info">Save order to profile</label>
                 <input class="form-check-input mx-4" type="checkbox" id="save-info" name="save-info" checked>
                 {% else %}
-                <label class="form-check-label" for="save-info">
-                    <a class="text-info" href="{% url 'account_signup' %}">Create Account</a> or
-                    <a class="text-info" href="{% url 'account_login' %}">Login</a> to save this order.
+                <label class="form-check-label text-blue" for="save-info">
+                    <a class="text-info text-blue" href="{% url 'account_signup' %}"><u>Create Account</u></a> or
+                    <a class="text-info text-blue" href="{% url 'account_login' %}"><u>Login</u></a> to save this order.
                 </label>
                 {% endif %}
                 <fieldset class="px-3">

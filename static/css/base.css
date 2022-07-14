@@ -178,6 +178,7 @@ header {
     margin: 10px;
     padding: 10px;
     background-color: #93bed5;
+    border: 2px solid white;
 }
 
 .card-img {

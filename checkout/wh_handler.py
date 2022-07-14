@@ -55,6 +55,7 @@ class StripeWH_Handler:
         handle successful payment intent
         """
         intent = event.data.object
+        print(intent.metadata)
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
