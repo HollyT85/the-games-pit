@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-blue uncial-text text-center my-3">Contact Us</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="text-blue text-center mt-2">
+                If you have any questions, please contact us using the form below.<br>
+                We will be in touch as soon as possible.<br>
+            </p>
+        </div>
+    </div>
+    <form class="text-center text-blue bg-dark w-75 custom-form mb-5 py-2 px-2 input-form" method="POST">
+        {% csrf_token %}
+        <div class="form-input">
+            <label for="name">Name*</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" required>
+        </div>
+        <div class="form-input">
+            <label for="email">E-mail Address*</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter e-mail address" required>
+        </div>
+        <div class="form-input">
+            <label for="message">Message*</label>
+            <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+        </div>
+        <button class="btn btn-secondary mt-2" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

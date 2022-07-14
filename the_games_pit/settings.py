@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'events',
     'checkout',
     'profiles',
+    'contact',
 
     # other
     'storages',
@@ -106,6 +107,10 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# further settings would be added here
+# allow for messages to be sent from website to store owner
+
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
