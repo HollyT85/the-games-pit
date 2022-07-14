@@ -68,19 +68,21 @@
             <div class="card-footer card-price pt-0">
                 <div class="row">
                     <div class="col">
-                        <!--show offer price if product on offer-->
+                        <!--just offer superusers edit/delete options-->
+                        {% if request.user.is_superuser %}
+                            <a class="btn btn-dark btn-sm mt-3" href="{% url 'admin_edit_product' product.id %}">Edit</a>
+                            <a class="btn btn-dark btn-sm mt-3" href="{% url 'admin_delete_product' product.id %}">Delete</a>
+                        {% else %}
+                        <!--show offer price if product on offer to non superusers-->
                         {% if product.on_offer %}
+                            <span class="badge badge-danger">Sale</span>
                             <p class="text-center text-danger my-0 py-0 strike">£{{ product.price }}</p>
                             <p class="text-center my-0 py-0"><b>£{{ product.offer_price }}</b></p>
-                            <span class="badge badge-danger">Sale</span>
                         {% else %}
                             <p class="text-center"><b>£{{ product.price }}</b></p>
                         {% endif %}
-                        <!--allow superusers to edit and delete items-->
-                        {% if request.user.is_superuser %}
-                            <a class="btn btn-dark btn-sm" href="{% url 'admin_edit_product' product.id %}">Edit</a>
-                            <a class="btn btn-dark btn-sm" href="{% url 'admin_delete_product' product.id %}">Delete</a>
                         {% endif %}
+                        <!--allow superusers to edit and delete items-->
                     </div>
                 </div>
             </div>
@@ -109,8 +111,8 @@
 {{ block.super }}
 <!--Scroll to top-->
 <script type="text/javascript">
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
+    $('.back-to-top').click(function(e) {
+        window.scrollTo(0,0)
     })
 </script>
 <!--Sort functionality-->
