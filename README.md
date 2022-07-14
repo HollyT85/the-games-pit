@@ -1,5 +1,7 @@
 ![zombieimg](static/media/zombie.jpg)
 
+![amiresponsive](static/media/responsive.png)
+
 # The Games Pit
 
 The Games Pit is a local gaming shop in Wakefield, West Yorkshire. The shop provides a free gaming area for people to use and sells a variety of merchandise in the gaming field such as Warhammer, Pokemon, Dungeons and Dragons and board games. 
@@ -47,7 +49,7 @@ The Games Pit is a local gaming shop in Wakefield, West Yorkshire. The shop prov
 * Provide potential visitors with an idea of what The Games Pit sells
 * Allow potential customers to purchase items directly from the website and have them posted
 * Give potential gamers an idea of events that are run and when
-* Give access to the social media The Games Pit uses
+* Give access to the social media The Games Pit uses and an ability to contact them via the website
 * Give potential customers the opportunity to create an account where they can store previous orders and their address details
 * All potential customers to leave their basket un-purchased and still be there when they return.
 
@@ -56,24 +58,74 @@ The Games Pit is a local gaming shop in Wakefield, West Yorkshire. The shop prov
 #### Users
 
 - As a user, I want to view what items I can purchase in one place.
-- As a user, I want to be able to make purchases.
+
+![goal1](static/media/goal1.png)
+
+- As a user, I want to see individual product details.
+
+![individ](static/media/individualproduct.jpg)
+
+- As a user, I want to see sale items easily.
+
+![sale](static/media/sale.jpg)
+
+- As a user, I want to be able to make purchases and view my total easily.
+
+![easybag](static/media/easybag.jpg)
+
 - As a user, I want to know my all my details are kept safely and securely.
 - As a user, I want to be able to contact the shop.
+
+![goal4](static/media/goal4.png)
+
 - As a user, I want to see what events are held in the shop.
-- As a user, I want to be able to access social media pages.
+
+![goal3](static/media/goal3.png)
+
+- as a user, I want to be able to create an account.
+
+![goal5](static/media/goal5.png)
+
 - As a user, I want to be able to checkout quickly and easily with or without an account. 
+
+![checkout](static/media/checkout.jpg)
+
+- As a user, I want a personalised profile.
+
+![goal52](static/media/goal52.png)
+
+- As a user, I want to be able to search for items.
+
+![search](static/media/search.jpg)
+
+- As a user, I want to be able to sort items.
+
+![sort](static/media/sort.jpg)
+
+- As a user, I want to be able to adjust an order from my bag.
+
+![adjust](static/media/adjust.jpg)
 
 #### Admin
 
 - As site admin, I want to be able to add, edit and delete products easily.
+
+![add](static/media/add.jpg)
+![editdelete](static/media/editdelete.jpg)
+
 - As site admin, I want to be able to view orders easily.
-- As site admin, I want to have the option to show sale and out of stock items.
+
+![stripe](static/media/stripe.jpg)
+
+- As site admin, I want to have the option to show sale and out of stock items. (shown in other screenshots)
 
 #### Developer
 
-- As a developer, I want to ensure there is defensive design
-- As a developer, I want to ensure only the right people can access the right information.
-- As a developer, I want to make the site easy to use for customers and admin.
+- As a developer, I want to ensure only the correct accounts can access areas.
+
+![access](static/media/authorised.jpg)
+
+- As a developer, I want to make the site easy to use for customers and admin. (seen in other screenshots)
 
 ### *Design Choices*
 
@@ -84,6 +136,10 @@ The logo for The Games Pit has always had an old-fashioned look which the shop o
 #### Colours
 
 The shop owner wanted the colours to be related to the zombie logo. The initial colour choice worked around the green of the zombie however, this was soon realised to not be very attractive and we changed it to blue. The colours are directly picked from the zombie's t-shirt. The inital blue was too dark to read against the dark background so this was changed to a paler blue which received better feedback. 
+
+The colours passed the accessibility checker:
+
+![colours](static/media/colour.jpg)
 
 ### *Wireframes*
 
@@ -281,10 +337,15 @@ Jquery
 Stripe Payments
 
 ### *Tools*
-AWS
-Heroku
-Git
+[AWS](https://aws.amazon.com/)
+[Heroku](https://www.heroku.com/)
 Postgres
+[Git](https://github.com/)
+[WebAim](https://webaim.org/resources/contrastchecker/)
+[FontAwesome](https://fontawesome.com/)
+[Bootstrap](https://getbootstrap.com/)
+[GIMPSoftware](https://www.gimp.org/)
+[GoogleFonts](https://fonts.google.com/)
 
 ## **Testing**
 ----------------
@@ -334,6 +395,13 @@ No automated testing has taken place in this project; it has all been manual and
 **Result**: FAIL: The website worked well on medium and large devices however, on mobile, there were some errors that were visible; the top navbar didn't display as well as I would like and therefore some code tweaks are required.
 
 ------------
+**Expected Outcome** : webhooks will work on Stripe.
+
+**Testing Carried out**: I made several purcahses on the live site.
+
+**Result**: PASS: Webhooks worked.
+
+------------
 **Expected Outcome** : when logged in as a superuser, I can add, edit and delete items and, if I'm not a superuser, I can't.
 
 **Testing Carried out**: I logged in as both a non superuser a superuser and visited various pages and items.
@@ -381,14 +449,14 @@ No automated testing has taken place in this project; it has all been manual and
 ------------
 **Problem**: one user, when trialling the site, got a 404 error when pressing on the basket when it was empty. After investigation, it was the home button on the empty bag page which wasn't working.
 
-**Caused by**: Forgot to closing ".
+**Caused by**: Forgot the closing ".
 
 **Resolved by**: Closing the "".
 
 ------------
 ### Unresolved Issues
 
-* The potential bug on an empty bag but as it cannot be replicated, I'm unsure if it is a bug or if something else happened to the user.
+
 
 ## **Deployment**
 ----------------
