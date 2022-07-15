@@ -21,7 +21,7 @@ def contact(request):
         data = {
             'name': name,
             'email': email,
-            'subect': subject,
+            'subject': subject,
             'message': message,
         }
 
