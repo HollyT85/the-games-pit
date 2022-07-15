@@ -444,11 +444,11 @@ All of my HTML passed through the [HTMLValidator](https://validator.w3.org/)
 **Result**: FAIL: The website worked well on medium and large devices however, on mobile, there were some errors that were visible; the top navbar didn't display as well as I would like and therefore some code tweaks are required.
 
 ------------
-**Expected Outcome** : webhooks will work on Stripe.
+**Expected Outcome** : webhooks will work on Stripe . Stripe is functioning with different test card numbers.
 
-**Testing Carried out**: I made several purcahses on the live site.
+**Testing Carried out**: I made several purcahses on the live site with different card numbers.
 
-**Result**: PASS: Webhooks worked.
+**Result**: PASS: Webhooks worked and each card number worked.
 
 ------------
 **Expected Outcome** : when logged in as a superuser, I can add, edit and delete items and, if I'm not a superuser, I can't.
@@ -503,6 +503,9 @@ All of my HTML passed through the [HTMLValidator](https://validator.w3.org/)
 **Resolved by**: Closing the "".
 
 ------------
+### Known Problems
+
+The image container doesn't suit all image sizes.; especially the narrower ones.
 
 
 ## **Deployment**
