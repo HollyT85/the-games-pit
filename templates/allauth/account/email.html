@@ -51,7 +51,7 @@
     <form method="post" action="{% url 'account_email' %}" class="add_email text-center custom-form mb-2 text-blue bg-dark w-75">
         {% csrf_token %}
         {{ form | crispy }}
-        <button name="action_add" class="btn btn-secondary" type="submit">{% trans "Add E-mail" %}</button>
+        <button name="action_add" class="btn btn-secondary mb-2" type="submit">{% trans "Add E-mail" %}</button>
     </form>
 
 {% endblock %}
