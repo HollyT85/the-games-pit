@@ -195,24 +195,6 @@ Users can easily access their profile from any page where they can update and st
 
 For the contact app, in the view under if request.method =='POST' add (the 'from' part of the code is from [here]))
 
-    name = request.POST.get('name')
-    email = request.POST.get('email')
-    message = request.POST.get('message')
-
-    data = {
-        'name': name, 
-        'email': email,
-        'message': message,
-    }
-
-    message = '''
-    New message: {}
-
-    From: {}
-    '''.format(data['message'], data['email'])
-    send_mail(message, '', [your email address])
-
-At the top, import django.core.mail import send_mail
 
 The site would benefit from a quick add to cart button.
 
