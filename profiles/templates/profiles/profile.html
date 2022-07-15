@@ -24,7 +24,7 @@
         <div class="col-12">
             <!--see previous orders-->
             <h5 class="text-blue uncial-text text-center">Previous Orders:</h5>
-            <div class="table w-75 mt-5 mx-auto mb-5 table-striped table-dark table-responsive previous-orders">
+            <div class="table w-75 mt-1 mx-auto mb-1 table-striped table-dark table-responsive previous-orders">
                 <table class="table text-white">
                     <thead>
                         <tr>
@@ -36,7 +36,6 @@
                     </thead>
                     <tbody>
                         {% for order in orders %}
-                        {% if order %}
                         <tr>
                             <td>
                                 <a title="{{ order.order_number }}">
@@ -56,10 +55,6 @@
                                 £{{ order.grand_total}}
                             </td>
                         </tr>
-                        {% else %}
-                            <p class="text-blue uncial-text text-center">You have not placed any orders.</p>
-                        {% endif %}
-                        
                         {% endfor %}
                     </tbody>
                 </table>
