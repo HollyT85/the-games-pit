@@ -193,10 +193,7 @@ Users can easily access their profile from any page where they can update and st
 
 ### *Features to be Implemented*
 
-For the contact app, in the view under if request.method =='POST' add (the 'from' part of the code is from [here]))
-
-
-The site would benefit from a quick add to cart button.
+The site would benefit from a quick add to cart button and pagniation as it grows and more items are added.
 
 ## **Database Details**
 ----------------
@@ -372,6 +369,28 @@ Speed Test
 
 HTML
 
+All of my HTML passed through the [HTMLValidator](https://validator.w3.org/)
+
+![add](static/media/htmladd.jpg)
+
+![profile](static/media/htmlaprofile.jpg)
+
+![bag](static/media/htmlbag.jpg)
+
+![checkout](static/media/htmlcheckout.jpg)
+
+![checkoutsuccess](static/media/htmlcheckoutsuccess.jpg)
+
+![contact](static/media/htmlcontact.jpg)
+
+![edit](static/media/htmledit.jpg)
+
+![events](static/media/htmlevents.jpg)
+
+![home](static/media/htmlhomepage.jpg)
+
+![productinfo](static/media/htmlindproducts.jpg)
+
 --------------
 
 **Expected Outcome**: All products in the database will load in both the correct category and correct sub category. Each product will be clickable and will lead to the product information page; if a product is out of stock there will be a badge saying so, if an item is on offer, two prices will be displayed with the original price struck out and the offer price showing. Out of stock items will be clickable however, there will be no purchasing options.
@@ -379,6 +398,14 @@ HTML
 **Testing Carried out**: After adding products to the database, ensuring some were out of stock and some were on offer, I loaded up the webpage and navigated to various areas to check the items were visible where they should be. I checked that out of stock items weren't purchasable adn that badges and offer prices all showed.
 
 **Result**: PASS: All items display correctly, out of stock items were not purchasable and had a badge stating they were out of stock and items on offer showed the correct pricing.
+
+--------------
+
+**Expected Outcome**: emails will be sent to users and users will be able to send emails to the shop owner
+
+**Testing Carried out**: carried out some registrations, some forgotten passwords and sent a contact form email
+
+**Result**: PASS: emails were sent and received.
 
 ------------
 

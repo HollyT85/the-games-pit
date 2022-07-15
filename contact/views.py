@@ -25,8 +25,6 @@ def contact(request):
             'message': message,
         }
 
-        """code from https://www.youtube.com/watch?v=1DcySa35fXw&t=1s"""
-
         message = f'New message: {message} From: {email}'
         send_mail(data['subject'], message, '', [sender_email])
 
