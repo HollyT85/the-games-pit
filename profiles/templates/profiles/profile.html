@@ -36,6 +36,7 @@
                     </thead>
                     <tbody>
                         {% for order in orders %}
+                        {% if order %}
                         <tr>
                             <td>
                                 <a title="{{ order.order_number }}">
@@ -55,6 +56,10 @@
                                 £{{ order.grand_total}}
                             </td>
                         </tr>
+                        {% else %}
+                            <p class="text-blue uncial-text text-center">You have not placed any orders.</p>
+                        {% endif %}
+                        
                         {% endfor %}
                     </tbody>
                 </table>

@@ -193,18 +193,7 @@ Users can easily access their profile from any page where they can update and st
 
 ### *Features to be Implemented*
 
-This information has come from [here](https://www.youtube.com/watch?v=1DcySa35fXw).
-
-To get the email feature working, in settings.py, under EMAIL_BACKEND add:
-
-EMAIL_HOST = your email host
-EMAIL_HOST_USER = your email address
-EMAIL_HOST_PASSWORD = your password (in os.environ for security reasons)
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-
-Then, in the view under if request.method =='POST' add:
+For the contact app, in the view under if request.method =='POST' add (the 'from' part of the code is from [here]))
 
     name = request.POST.get('name')
     email = request.POST.get('email')
